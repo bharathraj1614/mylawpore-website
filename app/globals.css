@@ -1,26 +1,37 @@
-@import "tailwindcss";
+/* Import Tailwind's base styles and utility classes */
+@import "tailwindcss"; /* Keep this format if it's working for your setup */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Define our theme using CSS custom properties (variables) within @theme */
+@theme {
+  /*
+    The --color-* variable is a convention. You can define explicit variables
+    for each color. Tailwind will automatically generate utility classes
+    like `bg-brand-navy` from `--color-brand-navy`.
+  */
+  --color-brand-navy: #1a237e;
+  --color-brand-gold: #c0a062;
+
+  --color-neutral-charcoal: #333333;
+  --color-neutral-grey: #4a4a4a;
+  --color-neutral-light-grey: #f4f4f4;
+  --color-neutral-off-white: #fcfcfc;
+  --font-body: var(--font-lato);
+  --font-heading: var(--font-merriweather);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* Apply global styles and base layer customizations */
+@layer base {
+  html {
+    /* Enables smooth scrolling for anchor links */
+    scroll-behavior: smooth;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    /* Apply our custom background and text colors */
+    @apply bg-neutral-off-white text-neutral-charcoal;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.hero-title {
+  text-shadow: 3px 3px 5px rgb(71, 71, 71);
 }
