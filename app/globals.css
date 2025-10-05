@@ -32,6 +32,25 @@
   }
 }
 
+/* ... (keep all your existing CSS at the top) ... */
+
 .hero-title {
-  text-shadow: 3px 3px 5px rgb(71, 71, 71);
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* --- REPLACE THE OLD LOADER CSS WITH THIS --- */
+
+/* Custom class for the loader animation */
+.loader-spin {
+  animation: spin 1.2s linear infinite;
+}
+
+/* Keyframe animation for spinning */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

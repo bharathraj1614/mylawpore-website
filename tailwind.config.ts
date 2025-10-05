@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import defaultTheme from "tailwindcss/defaultTheme";
 
 const config: Config = {
   content: [
@@ -9,23 +8,31 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      // Define the "Statesman" color palette
       colors: {
         brand: {
-          navy: "#1A237E", // Primary color for trust and authority
-          gold: "#C0A062", // Accent color for prestige and wisdom
+          navy: "#1A237E",
+          gold: "#C0A062",
         },
         neutral: {
-          charcoal: "#333333", // For primary text
-          grey: "#4A4A4A", // For secondary text
-          "light-grey": "#F4F4F4", // For borders and backgrounds
-          "off-white": "#FCFCFC", // For main page background
+          charcoal: "#333333",
+          grey: "#4A4A4A",
+          "light-grey": "#F4F4F4",
+          "off-white": "#FCFCFC",
         },
       },
-      // Extend the "Modern Authority" font families
       fontFamily: {
-        sans: ["var(--font-lato)", ...defaultTheme.fontFamily.sans], // Lato for body text
-        serif: ["var(--font-merriweather)", ...defaultTheme.fontFamily.serif], // Merriweather for headings
+        sans: ["var(--font-lato)"],
+        serif: ["var(--font-merriweather)"],
+      },
+      // Add the animation and keyframes here
+      animation: {
+        balance: "balance 2s ease-in-out infinite",
+      },
+      keyframes: {
+        balance: {
+          "0%, 100%": { transform: "rotate(5deg)" },
+          "50%": { transform: "rotate(-5deg)" },
+        },
       },
     },
   },

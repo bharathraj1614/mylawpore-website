@@ -1,5 +1,7 @@
 import { ReactNode } from "react";
 import { motion } from "framer-motion"; // For scroll animations
+import Link from "next/link"; // For navigation
+import { easeOut } from "framer-motion";
 
 interface CardProps {
   children: ReactNode;
@@ -10,11 +12,11 @@ interface CardProps {
 // Framer Motion variants for subtle lift-up on hover and fade-in on scroll
 const cardVariants = {
   initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.5, ease: easeOut } },
   hover: {
     y: -5,
     boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.1)",
-    transition: { duration: 0.2, ease: "easeOut" },
+    transition: { duration: 0.2, ease: easeOut },
   },
 };
 

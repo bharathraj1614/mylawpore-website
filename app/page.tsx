@@ -4,7 +4,7 @@ import PracticeAreas from "@/components/sections/PracticeAreas";
 import TeamSpotlight from "@/components/sections/TeamSpotlight";
 import CtaSection from "@/components/sections/CtaSection";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <Hero />

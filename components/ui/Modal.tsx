@@ -1,7 +1,7 @@
 "use client"; // This is a Client Component
 
 import { ReactNode, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, easeIn, easeOut } from "framer-motion";
 
 interface ModalProps {
   isOpen: boolean;
@@ -20,13 +20,13 @@ const modalContentVariants = {
     y: 0,
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.3, ease: "easeOut" },
+    transition: { duration: 0.3, ease: easeOut },
   },
   hidden: {
     y: -50,
     opacity: 0,
     scale: 0.9,
-    transition: { duration: 0.2, ease: "easeIn" },
+    transition: { duration: 0.2, ease: easeIn },
   },
 };
 
