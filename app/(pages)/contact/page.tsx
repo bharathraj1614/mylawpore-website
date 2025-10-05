@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import Image from "next/image";
+// import Image from "next/image";
 
 export default function ContactUsPage() {
   const [formData, setFormData] = useState({
@@ -87,7 +87,13 @@ export default function ContactUsPage() {
               </div>
               <div>
                 <h3 className="font-semibold text-brand-gold">Phone:</h3>
-                <p>+91 89257 33441</p>
+                {/* <p>+91 89257 33441</p> */}
+                <a
+                  href="tel:+91 89257 33441"
+                  className="text-brand-navy hover:text-brand-gold"
+                >
+                  +91 89257 33441
+                </a>
               </div>
               <div>
                 <h3 className="font-semibold text-brand-gold">Email:</h3>
@@ -100,9 +106,9 @@ export default function ContactUsPage() {
                   </a>
                 </p>
               </div>
-              <div className="flex space-x-4 pt-4">
-                {/* Social media icons (placeholders) */}
-                <a href="#" className="text-brand-navy hover:text-brand-gold">
+              {/* <div className="flex space-x-4 pt-4"> */}
+              {/* Social media icons (placeholders) */}
+              {/* <a href="#" className="text-brand-navy hover:text-brand-gold">
                   <Image
                     src="/images/icons/linkedin.svg"
                     alt="LinkedIn"
@@ -118,7 +124,7 @@ export default function ContactUsPage() {
                     height={24}
                   />
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
 
