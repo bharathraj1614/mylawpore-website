@@ -81,9 +81,8 @@ export default function ContactUsPage() {
             <div className="space-y-6 text-lg text-neutral-grey font-sans">
               <div>
                 <h3 className="font-semibold text-brand-gold">Address:</h3>
-                <p>No. 5, Balaji Avenue, I Street,</p>
-                <p>Gandhi Nagar, Adyar,</p>
-                <p>Chennai - 600 020.</p>
+                <p>No. 12A, Brindavanam Street,</p>
+                <p>Mylapore, Chennai – 600004.</p>
                 <p>Tamil Nadu, India.</p>
               </div>
               <div>

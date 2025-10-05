@@ -97,17 +97,17 @@ export default function Footer() {
         <div>
           <h3 className="text-xl font-serif text-brand-gold mb-4">Contact</h3>
           <address className="not-italic text-sm font-sans space-y-2">
-            <p>No. 5, Balaji Avenue, I Street,</p>
-            <p>Gandhi Nagar, Adyar, Chennai - 600 020,</p>
+            <p>No. 12A, Brindavanam Street,</p>
+            <p>Mylapore, Chennai – 600004,</p>
             <p>Tamil Nadu, India.</p>
-            <p>Phone: +91 94441 33434</p>
+            <p>Phone: +91 89257 33441</p>
             <p>
               Email:{" "}
               <a
-                href="mailto:kvsubramanianassociatez@gmail.com"
+                href="mailto:mylawpore@gmail.com"
                 className="hover:text-brand-gold transition-colors duration-200"
               >
-                kvsubramanianassociatez@gmail.com
+                mylawpore@gmail.com
               </a>
             </p>
           </address>

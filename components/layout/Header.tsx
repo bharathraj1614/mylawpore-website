@@ -2,13 +2,11 @@
 
 import { useState } from "react";
 import Link from "next/link";
-// import Image from 'next/image'; // We no longer need this if the logo is inline SVG
 import Button from "@/components/ui/Button";
 import { usePathname } from "next/navigation"; // Import usePathname for current page indication
-import { DharmaChakra } from "../ui/DharmaChakra";
 
 // Define your firm's SVG logo directly as a React component
-const FirmLogoSVG = ({ size = 40, color = "#C0A062" }) => (
+const FirmLogoSVG = ({ size = 40, color = "#0D2745" }) => (
   <svg
     width={size}
     height={size}
@@ -19,16 +17,27 @@ const FirmLogoSVG = ({ size = 40, color = "#C0A062" }) => (
     strokeWidth="1.5"
     strokeLinecap="round"
     strokeLinejoin="round"
-    className="transform rotate-0" // Add any base styling here
+    className="transform"
   >
-    {/* This is a simplified Scales of Justice for illustration.
-        Replace this with your actual firm's logo SVG path.
-        If your logo is a Dharma Chakra, use that SVG code.
-    */}
-    <path d="M6 15l6 6 6-6" />
-    <path d="M12 3v18" />
-    <path d="M3 10h18" />
-    <circle cx="12" cy="7" r="2" /> {/* Represents the fulcrum/balance point */}
+    {/* Beam */}
+    <line x1="4" y1="8" x2="20" y2="8" />
+
+    {/* Fulcrum */}
+    <circle cx="12" cy="4" r="1.5" />
+
+    {/* Center pole */}
+    <line x1="12" y1="4" x2="12" y2="18" />
+
+    {/* Left pan */}
+    <line x1="7" y1="8" x2="7" y2="12" />
+    <circle cx="7" cy="14" r="2" />
+
+    {/* Right pan */}
+    <line x1="17" y1="8" x2="17" y2="12" />
+    <circle cx="17" cy="14" r="2" />
+
+    {/* Base */}
+    <line x1="9" y1="18" x2="15" y2="18" />
   </svg>
 );
 
@@ -50,13 +59,8 @@ export default function Header() {
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo - Now using inline SVG */}
         <Link href="/" className="flex items-center space-x-2">
-          {/* <FirmLogoSVG size={40} color="#C0A062" />{" "} */}
+          <FirmLogoSVG size={40} color="#C0A062" />{" "}
           {/* Use your SVG component */}
-          <DharmaChakra
-            size={40} /* Adjust size for loader, e.g., 80px */
-            color="#C0A062" /* Use brand-gold for the color */
-            // className="loader-spin" /* Apply the spinning animation */
-          />
           <span className="text-xl font-serif font-bold text-brand-gold">
             Subramanian Associatez
           </span>
