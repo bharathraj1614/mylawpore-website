@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 import { usePathname } from "next/navigation"; // Import usePathname for current page indication
+// import Image from "next/image";
 
 // Define your firm's SVG logo directly as a React component
 const FirmLogoSVG = ({ size = 40, color = "#0D2745" }) => (
@@ -61,6 +62,13 @@ export default function Header() {
         <Link href="/" className="flex items-center space-x-2">
           <FirmLogoSVG size={40} color="#C0A062" />{" "}
           {/* Use your SVG component */}
+          {/* <Image
+            src="/logo.png" // This path points to `public/logo.png`
+            alt="M/s. K.V. Subramanian Associatez Logo"
+            width={40} // Set a base width for the logo
+            height={20} // Set a corresponding height to maintain aspect ratio
+            priority // Tells Next.js to load this image first (good for LCP)
+          /> */}
           <span className="text-xl font-serif font-bold text-brand-gold">
             Subramanian Associatez
           </span>
