@@ -20,18 +20,24 @@ export default function ContactUsPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real application, you would send this data to an API endpoint
-    console.log("Form submitted:", formData);
-    alert("Thank you for your message! We will get back to you shortly.");
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
+    const response = await fetch("/api/send-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
     });
+
+    if (response.ok) {
+      alert("Thank you for your message! We will get back to you shortly.");
+      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+    } else {
+      alert(
+        "Sorry, there was an error sending your message. Please try again."
+      );
+    }
   };
 
   return (
@@ -82,17 +88,16 @@ export default function ContactUsPage() {
               </div>
               <div>
                 <h3 className="font-semibold text-brand-gold">Phone:</h3>
-                <p>+91 94441 33434</p>
-                <p>+91 98402 75525</p>
+                <p>+91 89257 33441</p>
               </div>
               <div>
                 <h3 className="font-semibold text-brand-gold">Email:</h3>
                 <p>
                   <a
-                    href="mailto:kvsubramanianassociatez@gmail.com"
+                    href="mailto:mylawpore@gmail.com"
                     className="text-brand-navy hover:text-brand-gold"
                   >
-                    kvsubramanianassociatez@gmail.com
+                    mylawpore@gmail.com
                   </a>
                 </p>
               </div>
@@ -224,7 +229,7 @@ export default function ContactUsPage() {
       {/* Google Map Section */}
       <div className="w-full h-[400px] md:h-[500px] bg-neutral-grey">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.866023758068!2d80.2443013750438!3d13.045618587212458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5266858273679f%3A0xcb13e5b3f11f0578!2s5%2C%20Balaji%20Ave%201st%20St%2C%20Gandhi%20Nagar%2C%20Adyar%2C%20Chennai%2C%20Tamil%20Nadu%20600020%2C%20India!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+          src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3886.893587635918!2d80.26634187507767!3d13.042444887279515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTPCsDAyJzMyLjgiTiA4MMKwMTYnMDguMSJF!5e0!3m2!1sen!2sin!4v1759643990173!5m2!1sen!2sin"
           width="100%"
           height="100%"
           style={{ border: 0 }}

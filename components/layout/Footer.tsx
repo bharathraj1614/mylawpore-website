@@ -1,67 +1,124 @@
 import Link from "next/link";
 
 export default function Footer() {
-  // We'll define these links more concretely as pages are built out
-  const quickLinks = [
-    { name: "About Us", href: "/about" },
-    { name: "Practice Areas", href: "/practice-areas" },
-    { name: "Our Team", href: "/our-team" },
-    { name: "Contact", href: "/contact" },
-  ];
+  const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-brand-navy text-white py-10 mt-12">
-      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        {/* Contact Information */}
-        <div className="flex flex-col space-y-2">
-          <h3 className="font-serif text-xl text-brand-gold mb-3">
-            Contact Us
+    <footer className="bg-neutral-charcoal text-neutral-light-grey py-12">
+      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+        {/* About Column */}
+        <div>
+          <h3 className="text-xl font-serif text-brand-gold mb-4">
+            M/s. K.V. Subramanian Associatez
           </h3>
-          <p className="font-sans text-neutral-off-white">
-            No. 12A, Brindavanam Street,
-            <br />
-            Mylapore, Chennai-600004
+          <p className="text-sm font-sans leading-relaxed">
+            Dedicated to providing expert legal counsel with integrity and a
+            client-focused approach. &quot;Law is Dharma&quot;.
           </p>
-          <p className="font-sans">Email: mylawpore@gmail.com</p>
-          <p className="font-sans">Phone: +91 89257 33441</p>
         </div>
 
-        {/* Quick Links */}
-        <div className="flex flex-col space-y-2">
-          <h3 className="font-serif text-xl text-brand-gold mb-3">
+        {/* Quick Links Column */}
+        <div>
+          <h3 className="text-xl font-serif text-brand-gold mb-4">
             Quick Links
           </h3>
-          <ul className="space-y-1">
-            {quickLinks.map((link) => (
-              <li key={link.name}>
-                <Link
-                  href={link.href}
-                  className="text-neutral-off-white hover:text-brand-gold font-sans transition-colors duration-200"
-                >
-                  {link.name}
-                </Link>
-              </li>
-            ))}
+          <ul className="space-y-2">
+            <li>
+              <Link
+                href="/about"
+                className="hover:text-brand-gold transition-colors duration-200 font-sans"
+              >
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/our-team"
+                className="hover:text-brand-gold transition-colors duration-200 font-sans"
+              >
+                Our Team
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/practice-areas"
+                className="hover:text-brand-gold transition-colors duration-200 font-sans"
+              >
+                Practice Areas
+              </Link>
+            </li>{" "}
+            {/* Assuming this page exists */}
+            <li>
+              <Link
+                href="/contact"
+                className="hover:text-brand-gold transition-colors duration-200 font-sans"
+              >
+                Contact Us
+              </Link>
+            </li>
           </ul>
         </div>
 
-        {/* Placeholder for "Locate Us" or another column if needed */}
-        {/* For now, it will be an empty column or can be removed if not needed */}
-        <div className="flex flex-col space-y-2">
-          <h3 className="font-serif text-xl text-brand-gold mb-3">Follow Us</h3>
-          <p className="font-sans text-neutral-off-white">
-            {/* Placeholder for social media icons */}
-            [Social Media Icons Here]
-          </p>
+        {/* Legal Links Column */}
+        <div>
+          <h3 className="text-xl font-serif text-brand-gold mb-4">Legal</h3>
+          <ul className="space-y-2">
+            <li>
+              <Link
+                href="/disclaimer"
+                className="hover:text-brand-gold transition-colors duration-200 font-sans"
+              >
+                Disclaimer
+              </Link>
+            </li>{" "}
+            {/* Added Disclaimer link */}
+            <li>
+              <Link
+                href="/privacy-policy"
+                className="hover:text-brand-gold transition-colors duration-200 font-sans"
+              >
+                Privacy Policy
+              </Link>
+            </li>{" "}
+            {/* Placeholder */}
+            <li>
+              <Link
+                href="/terms-of-service"
+                className="hover:text-brand-gold transition-colors duration-200 font-sans"
+              >
+                Terms of Service
+              </Link>
+            </li>{" "}
+            {/* Placeholder */}
+          </ul>
         </div>
 
-        {/* Copyright */}
-        <div className="md:col-span-full lg:col-span-1 flex items-end justify-start lg:justify-end mt-6 lg:mt-0">
-          <p className="text-neutral-light-grey text-sm font-sans">
-            &copy; {new Date().getFullYear()} M/s. K.V. Subramanian Associatez.
-            All rights reserved.
-          </p>
+        {/* Contact Info Column */}
+        <div>
+          <h3 className="text-xl font-serif text-brand-gold mb-4">Contact</h3>
+          <address className="not-italic text-sm font-sans space-y-2">
+            <p>No. 5, Balaji Avenue, I Street,</p>
+            <p>Gandhi Nagar, Adyar, Chennai - 600 020,</p>
+            <p>Tamil Nadu, India.</p>
+            <p>Phone: +91 94441 33434</p>
+            <p>
+              Email:{" "}
+              <a
+                href="mailto:kvsubramanianassociatez@gmail.com"
+                className="hover:text-brand-gold transition-colors duration-200"
+              >
+                kvsubramanianassociatez@gmail.com
+              </a>
+            </p>
+          </address>
         </div>
+      </div>
+
+      <div className="container mx-auto px-4 mt-8 pt-8 border-t border-neutral-grey text-center text-sm font-sans">
+        <p>
+          &copy; {currentYear} M/s. K.V. Subramanian Associatez. All rights
+          reserved.
+        </p>
       </div>
     </footer>
   );
