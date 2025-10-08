@@ -34,13 +34,11 @@ export default function PracticeAreas() {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {" "}
-          {/* Added mb-12 for button spacing */}
-          {featuredPracticeAreas.map(
-            (
-              area // Use featuredPracticeAreas here
-            ) => (
+          {featuredPracticeAreas.map((area) => {
+            const IconComponent = area.icon; // Get the icon component
+            return (
               <Card key={area.title}>
+                <IconComponent /> {/* Render the icon component */}
                 <h3 className="text-2xl font-serif text-brand-navy mb-3">
                   {area.title}
                 </h3>
@@ -48,8 +46,8 @@ export default function PracticeAreas() {
                   {area.description}
                 </p>
               </Card>
-            )
-          )}
+            );
+          })}
         </div>
         <div className="text-center">
           <Button href="/practice-areas" variant="outline" size="lg">

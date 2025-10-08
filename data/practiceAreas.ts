@@ -1,6 +1,21 @@
+import {
+  BankingIcon,
+  PropertyIcon,
+  CompanyIcon,
+  LabourIcon,
+  ArbitrationIcon,
+  CyberCrimeIcon,
+  JurisdictionIcon,
+  TaxIcon,
+  TestamentaryIcon,
+  GeneralMattersIcon,
+} from "@/components/icons/PracticeAreaIcons";
+import React from "react";
+
 export interface PracticeArea {
   title: string;
   description: string;
+  icon: React.ComponentType;
 }
 
 export const practiceAreas: PracticeArea[] = [
@@ -8,51 +23,61 @@ export const practiceAreas: PracticeArea[] = [
     title: "Banking Matters",
     description:
       "Expert legal solutions for all banking matters, including DRT and SARFAESI applications.",
+    icon: BankingIcon,
   },
   {
     title: "Property Matters",
     description:
       "Comprehensive legal services for all property-related matters, including disputes and documentation.",
+    icon: PropertyIcon,
   },
   {
     title: "Company Matters",
     description:
       "Advising on company matters, from incorporation to compliance and litigation.",
+    icon: CompanyIcon,
   },
   {
     title: "Labour & Service Matters",
     description:
       "Handling complex labour and service-related legal issues for both employers and employees.",
+    icon: LabourIcon,
   },
   {
     title: "Arbitration",
     description:
       "Resolving disputes efficiently through our expert arbitration and mediation services.",
+    icon: ArbitrationIcon,
   },
   {
     title: "Banking Cyber Crime",
     description:
       "Specialized legal support for banking-related cyber crime and digital fraud cases.",
+    icon: CyberCrimeIcon,
   },
   {
     title: "Appeal & Original Jurisdiction",
     description:
       "Representing clients in both original cases and appeals across various judicial levels.",
+    icon: JurisdictionIcon,
   },
   {
     title: "Tax Matters",
     description:
       "Providing legal counsel and representation for a variety of tax-related issues.",
+    icon: TaxIcon,
   },
   {
     title: "Testamentary Jurisdiction",
     description:
       "Assisting with wills, probate, and other testamentary and succession matters.",
+    icon: TestamentaryIcon,
   },
   {
     title: "Rent & Electricity Matters",
     description:
       "Handling legal issues related to rent agreements, tenant disputes, and electricity regulations.",
+    icon: GeneralMattersIcon,
   },
 ];
 
