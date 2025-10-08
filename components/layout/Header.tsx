@@ -51,6 +51,7 @@ export default function Header() {
     { name: "About Us", href: "/about" },
     { name: "Our Team", href: "/our-team" },
     { name: "Practice Areas", href: "/practice-areas" },
+    { name: "Blog", href: "/blog" },
     { name: "Contact Us", href: "/contact" },
     { name: "Disclaimer", href: "/disclaimer" },
   ];

@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import typography from "@tailwindcss/typography"; // <-- IMPORT PLUGIN HERE
 
 const config: Config = {
   content: [
@@ -24,7 +25,6 @@ const config: Config = {
         sans: ["var(--font-lato)"],
         serif: ["var(--font-merriweather)"],
       },
-      // Add the animation and keyframes here
       animation: {
         balance: "balance 2s ease-in-out infinite",
       },
@@ -36,6 +36,8 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    typography, // <-- USE THE IMPORTED PLUGIN HERE
+  ],
 };
 export default config;
