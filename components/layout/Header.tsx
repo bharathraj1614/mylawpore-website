@@ -61,7 +61,7 @@ export default function Header() {
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo - Now using inline SVG */}
         <Link href="/" className="flex items-center space-x-2">
-          <FirmLogoSVG size={40} color="#C0A062" />{" "}
+          {/* <FirmLogoSVG size={40} color="#C0A062" />{" "} */}
           {/* Use your SVG component */}
           {/* <Image
             src="/logo.png" // This path points to `public/logo.png`

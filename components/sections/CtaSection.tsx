@@ -8,7 +8,7 @@ export default function CtaSection() {
       className="py-16 md:py-24 bg-brand-navy text-white"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.5 }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8 }}
     >
       <div className="container mx-auto px-4 text-center">
