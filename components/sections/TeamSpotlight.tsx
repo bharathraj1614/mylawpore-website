@@ -145,7 +145,6 @@ export default function TeamSpotlight() {
           </Button>
         </div>
       </div>
-
       {/* Optional: A Modal component for detailed background if you choose that approach */}
       {/* {selectedAdvocate && (
         <AdvocateDetailModal

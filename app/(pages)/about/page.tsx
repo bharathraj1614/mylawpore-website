@@ -86,7 +86,7 @@ export default function AboutUsPage() {
           </div>
           <div className="order-1 md:order-2">
             <Image
-              src="/frim-building.png" // Replace with a real image
+              src="/frim-building.jpg" // Replace with a real image
               alt="Our Firm's Office"
               width={500}
               height={400}
