@@ -1,6 +1,6 @@
 "use client";
 import { useRef } from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { easeOut, motion, useScroll, useTransform } from "framer-motion";
 import Button from "../ui/Button";
 

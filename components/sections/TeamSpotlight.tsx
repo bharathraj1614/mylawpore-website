@@ -2,7 +2,7 @@
 
 import { easeOut, motion } from "framer-motion";
 import { featuredAdvocates } from "@/data/advocates"; // Ensure this import points to your updated data structure
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Button from "../ui/Button"; // Assuming Button component is available
 
 // Optional: You might want to create a Modal or a separate page for full advocate profiles

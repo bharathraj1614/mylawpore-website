@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { easeOut, motion } from "framer-motion";
 import { advocates, Advocate } from "@/data/advocates"; // Ensure this import points to your updated data structure
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Modal from "@/components/ui/Modal"; // Assuming your Modal component is robust
 
 // Animation variants for the container and items

@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Button from "../ui/Button";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 export default function AboutPreview() {
   return (

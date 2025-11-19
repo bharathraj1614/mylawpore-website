@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image"; // Import the Image component
+import Image from "next/legacy/image"; // Import the Image component
 import { blogPosts } from "@/data/blogPosts";
 import Card from "@/components/ui/Card";
 

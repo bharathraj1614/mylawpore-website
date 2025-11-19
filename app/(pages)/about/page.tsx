@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 // A simple component for statistics
 const StatItem = ({ value, label }: { value: string; label: string }) => (

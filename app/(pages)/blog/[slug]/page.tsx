@@ -1,6 +1,6 @@
 import { blogPosts } from "@/data/blogPosts";
 import { notFound } from "next/navigation";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import BlogPostClient from "@/components/blog/BlogPostClient";
 
 // This is a Server Component that fetches data
@@ -19,8 +19,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           <Image
             src={post.coverImage}
             alt={`Background for ${post.title}`}
-            fill
-            style={{ objectFit: "cover" }}
+            layout="fill"
+            objectFit="cover"
             className="opacity-20"
             priority // Load this image first
           />
