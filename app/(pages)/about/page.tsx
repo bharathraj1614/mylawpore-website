@@ -53,7 +53,7 @@ export default function AboutUsPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             A legacy of justice, integrity, and client-focused advocacy since
-            2011.
+            1979.
           </motion.p>
         </div>
       </div>
@@ -72,7 +72,7 @@ export default function AboutUsPage() {
               Our Foundation
             </h2>
             <p className="text-lg text-neutral-grey mb-4 font-sans">
-              M/s. K.V. Subramanian Associatez was established in 2011 and is a
+              M/s. K.V. Subramanian Associatez was established in 1979 and is a
               registered firm before the Hon’ble High Court at Madras. Our firm
               is dedicated to catering to the legal requirements of litigants
               and providing clear, effective solutions for those who approach us
@@ -165,7 +165,7 @@ export default function AboutUsPage() {
               value="21+"
               label="Educational Institutions Represented"
             />
-            <StatItem value="2011" label="Year Established" />
+            <StatItem value="1979" label="Year Established" />
           </div>
         </div>
       </motion.section>

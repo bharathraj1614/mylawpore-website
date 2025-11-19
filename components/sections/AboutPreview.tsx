@@ -19,7 +19,7 @@ export default function AboutPreview() {
             A Legacy of Trust & Expertise
           </h2>
           <p className="text-lg text-neutral-grey mb-8 font-sans">
-            M/s. K.V. Subramanian Associatez was established in 2011 to cater to
+            M/s. K.V. Subramanian Associatez was established in 1979 to cater to
             the legal requirements of litigants with integrity and proficiency.
             We are a registered panel advocate for nationalized banks,
             government corporations, and educational institutions, committed to

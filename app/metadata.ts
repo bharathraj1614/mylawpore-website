@@ -216,16 +216,16 @@ export const metadata: Metadata = {
     canonical: SITE_URL, // Use the string constant here
   },
 
-  // 6. Viewport
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
-  },
+  // // 6. Viewport
+  // viewport: {
+  //   width: "device-width",
+  //   initialScale: 1,
+  //   maximumScale: 1,
+  //   userScalable: false,
+  // },
 
-  // 7. Theme Color
-  themeColor: "#0D2547",
+  // // 7. Theme Color
+  // themeColor: "#0D2547",
 
   // 8. Other optional headers
   manifest: "/manifest.webmanifest",

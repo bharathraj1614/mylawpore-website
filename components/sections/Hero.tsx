@@ -81,7 +81,7 @@ export default function Hero() {
           className="text-lg md:text-xl max-w-2xl mx-auto mb-8 font-sans drop-shadow-sm"
           variants={itemVariants}
         >
-          A tradition of legal excellence and unwavering integrity since 2011.
+          A tradition of legal excellence and unwavering integrity since 1979.
         </motion.p>
         <motion.div variants={itemVariants}>
           <Button href="/contact" variant="primary" size="lg">
