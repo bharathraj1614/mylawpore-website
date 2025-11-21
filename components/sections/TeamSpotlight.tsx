@@ -5,9 +5,6 @@ import { featuredAdvocates } from "@/data/advocates"; // Ensure this import poin
 import Image from "next/image";
 import Button from "../ui/Button"; // Assuming Button component is available
 
-// Optional: You might want to create a Modal or a separate page for full advocate profiles
-import { useState } from "react";
-
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -71,8 +68,9 @@ export default function TeamSpotlight() {
                   className="rounded-full mx-auto mb-3 border-4 border-brand-gold object-cover"
                   style={{
                     maxWidth: "100%",
-                    height: "auto"
-                  }} />
+                    height: "auto",
+                  }}
+                />
                 <h3 className="text-2xl font-serif text-brand-navy mb-1">
                   {advocate.name}
                 </h3>
