@@ -21,7 +21,7 @@ export default function BlogPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogPosts.map((post) => (
             // The Card component needs to have its padding removed to allow the image to fill the top
-            (<Card
+            <Card
               key={post.slug}
               href={`/blog/${post.slug}`}
               className="p-0 overflow-hidden"
@@ -37,8 +37,8 @@ export default function BlogPage() {
                     style={{
                       objectFit: "cover",
                       maxWidth: "100%",
-                      height: "auto"
-                    }} />
+                    }}
+                  />
                 </div>
                 {/* Content Section */}
                 <div className="p-6 flex flex-col flex-grow">
@@ -56,7 +56,7 @@ export default function BlogPage() {
                   </span>
                 </div>
               </div>
-            </Card>)
+            </Card>
           ))}
         </div>
       </div>

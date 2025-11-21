@@ -134,7 +134,7 @@ import type { Metadata } from "next";
 const TITLE = "M/s. K.V. Subramanian Associatez | Top Law Firm in Chennai";
 const DESCRIPTION =
   "Leading Chennai law firm offering expert legal services in banking, property, company, and labour law. Contact our experienced advocates for robust legal advice and representation. Law is Dharma.";
-const SITE_URL = "https://www.mylawpore.com"; // Use this constant throughout
+const SITE_URL = "https://www.kvsassociatez.in"; // Use this constant throughout
 const IMAGE_URL = `${SITE_URL}/og-image.png`;
 const KEYWORDS = [
   "law firm Chennai",

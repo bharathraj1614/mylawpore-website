@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.mylawpore.com"; // Use your final domain
+  const baseUrl = "https://www.kvsassociatez.in"; // Use your final domain
 
   return [
     {
