@@ -1,6 +1,6 @@
 "use client";
 import { useRef } from "react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { easeOut, motion, useScroll, useTransform } from "framer-motion";
 import Button from "../ui/Button";
 
@@ -55,15 +55,16 @@ export default function Hero() {
           <Image
             src="/hero-background.png"
             alt="Legal books and gavel in a library"
-            layout="fill"
-            objectFit="cover"
             priority
-          />
+            fill
+            sizes="100vw"
+            style={{
+              objectFit: "cover"
+            }} />
           {/* Darker Overlay for better text contrast */}
           <div className="absolute inset-0 bg-brand-navy opacity-10"></div>
         </div>
       </motion.div>
-
       {/* Foreground Content (with staggered text animation) */}
       <motion.div
         className="relative z-10 p-4 max-w-4xl mx-auto"

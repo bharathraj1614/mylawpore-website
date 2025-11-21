@@ -1,6 +1,6 @@
 import { blogPosts } from "@/data/blogPosts";
 import { notFound } from "next/navigation";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import BlogPostClient from "@/components/blog/BlogPostClient";
 
 // This is a Server Component that fetches data
@@ -19,11 +19,14 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           <Image
             src={post.coverImage}
             alt={`Background for ${post.title}`}
-            layout="fill"
-            objectFit="cover"
             className="opacity-20"
-            priority // Load this image first
-          />
+            // Load this image first
+            priority
+            fill
+            sizes="100vw"
+            style={{
+              objectFit: "cover"
+            }} />
         </div>
         <div className="relative container mx-auto px-4 text-center max-w-4xl">
           <div className="flex justify-center flex-wrap gap-2 mb-4">
@@ -44,7 +47,6 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           </p>
         </div>
       </div>
-
       {/* The client component now only handles rendering the article content */}
       <BlogPostClient post={post} />
     </>

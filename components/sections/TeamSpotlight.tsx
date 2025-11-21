@@ -2,7 +2,7 @@
 
 import { easeOut, motion } from "framer-motion";
 import { featuredAdvocates } from "@/data/advocates"; // Ensure this import points to your updated data structure
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Button from "../ui/Button"; // Assuming Button component is available
 
 // Optional: You might want to create a Modal or a separate page for full advocate profiles
@@ -64,10 +64,15 @@ export default function TeamSpotlight() {
                 <Image
                   src={advocate.imageUrl}
                   alt={`Profile of ${advocate.name}`}
-                  width={120} // Slightly adjusted size for better fit
+                  // Slightly adjusted size for better fit
+                  width={120}
                   height={120}
-                  className="rounded-full mx-auto mb-3 border-4 border-brand-gold object-cover" // Added object-cover
-                />
+                  // Added object-cover
+                  className="rounded-full mx-auto mb-3 border-4 border-brand-gold object-cover"
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto"
+                  }} />
                 <h3 className="text-2xl font-serif text-brand-navy mb-1">
                   {advocate.name}
                 </h3>

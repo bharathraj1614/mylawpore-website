@@ -8,8 +8,8 @@ export async function POST(request: Request) {
 
   try {
     const data = await resend.emails.send({
-      from: "Website Inquiry <onboarding@resend.dev>", // This is a required field for the free tier
-      to: ["bharathraj1614@gmail.com"], // Your email address
+      from: "Website Inquiry <onboarding@resend.dev>",
+      to: ["mylawpore@gmail.com"],
       subject: `New Inquiry from ${name}: ${subject}`,
       html: `
         <p>You have a new inquiry from your website contact form:</p>

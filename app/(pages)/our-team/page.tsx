@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { easeOut, motion } from "framer-motion";
 import { advocates, Advocate } from "@/data/advocates"; // Ensure this import points to your updated data structure
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Modal from "@/components/ui/Modal"; // Assuming your Modal component is robust
 
 // Animation variants for the container and items
@@ -55,7 +55,6 @@ export default function OurTeamPage() {
           </p>
         </div>
       </div>
-
       <motion.div
         className="container mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         variants={containerVariants}
@@ -74,10 +73,14 @@ export default function OurTeamPage() {
               <Image
                 src={advocate.imageUrl}
                 alt={`Profile of ${advocate.name}`}
-                width={120} // Slightly smaller for grid view
+                // Slightly smaller for grid view
+                width={120}
                 height={120}
                 className="rounded-full mx-auto mb-3 border-4 border-brand-gold object-cover"
-              />
+                style={{
+                  maxWidth: "100%",
+                  height: "auto"
+                }} />
               <h2 className="text-2xl font-serif text-brand-navy mb-1">
                 {advocate.name}
               </h2>
@@ -105,7 +108,6 @@ export default function OurTeamPage() {
           </motion.div>
         ))}
       </motion.div>
-
       {/* Modal for displaying advocate details */}
       <Modal
         isOpen={!!selectedAdvocate}
@@ -120,10 +122,14 @@ export default function OurTeamPage() {
               <Image
                 src={selectedAdvocate.imageUrl}
                 alt={`Profile of ${selectedAdvocate.name}`}
-                width={150} // Larger image in modal
+                // Larger image in modal
+                width={150}
                 height={150}
                 className="rounded-full border-4 border-brand-gold object-cover"
-              />
+                style={{
+                  maxWidth: "100%",
+                  height: "auto"
+                }} />
             </div>
             <p className="text-center text-xl font-semibold text-brand-gold mb-2">
               {selectedAdvocate.title}

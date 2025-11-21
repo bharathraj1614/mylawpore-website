@@ -35,7 +35,7 @@ export const advocates: Advocate[] = [
   {
     name: "Mr. R. Jagadeesan",
     title: "Advocate",
-    imageUrl: "/advocate.png",
+    imageUrl: "/jagath.jpg",
     experienceTag: "Vast Legal Expertise | Former Banker", // Concise experience tag
     summary: `Mr. R. Jagadeesan is a postgraduate in Law with vast legal expertise, particularly in Arbitration, Banking, and Property Matters, following a career in a Nationalized Bank.`,
     areasOfPractice: [
@@ -60,7 +60,7 @@ export const advocates: Advocate[] = [
   {
     name: "Mr. M.A. Abdul Wahab",
     title: "Advocate",
-    imageUrl: "/advocate.png",
+    imageUrl: "/abdul.jpg",
     experienceTag: "32 Years Experience", // Concise experience tag
     summary: `Mr. M.A. Abdul Wahab has over 32 years of experience before the Hon’ble High Court at Madras and various tribunals, specializing in Civil, Original, and Appellate Jurisdictions.`,
     areasOfPractice: [
@@ -82,7 +82,7 @@ export const advocates: Advocate[] = [
   {
     name: "Mrs. V. Revathi",
     title: "Advocate",
-    imageUrl: "/advocate.png",
+    imageUrl: "/revathi.jpg",
     experienceTag: "13 Years Experience", // Concise experience tag
     summary: `Mrs. V. Revathi has over 13 years of extensive experience, actively handling Original Applications, SARFAESI Proceedings, and Civil Suits before Civil Courts and Debt Recovery Appellate Tribunals.`,
     areasOfPractice: [
@@ -98,7 +98,7 @@ export const advocates: Advocate[] = [
   {
     name: "Mr. S. Deenadhayalan",
     title: "Advocate & Commissioner of Oath",
-    imageUrl: "/advocate.png",
+    imageUrl: "/deena.jpg",
     experienceTag: "7 Years Experience", // Concise experience tag
     summary: `Mr. S. Deenadhayalan, an Advocate and Commissioner of Oath, has 7 years of practice before the High Court at Madras and various tribunals, specializing in Civil and Debt Recovery matters.`,
     areasOfPractice: [
@@ -113,7 +113,7 @@ export const advocates: Advocate[] = [
   {
     name: "Mr. R. Farooq Khan",
     title: "Advocate",
-    imageUrl: "/advocate.png",
+    imageUrl: "/farook.jpg",
     experienceTag: "4 Years Experience", // Concise experience tag
     summary: `Mr. R. Farooq Khan, with 4 years of experience, is a junior associate assisting in Recovery and Civil Litigation, with practice before the High Court of Madras, DRT, and NCLT.`,
     areasOfPractice: [
@@ -127,13 +127,23 @@ export const advocates: Advocate[] = [
     detailedBackground: `Practicing before the Hon’ble High Court at Madras, DRT and DRAT for the past 3 years. He is a Junior to M/s. K.V. Subramanian Associatez and actively assists in matters relating to Recovery and Civil Litigation. His practice also includes SARFAESI Proceedings, NCLT, NCLAT, and High Court of Madras matters.`,
   },
   {
-    name: "Shankar",
-    title: "Advocate",
-    imageUrl: "/advocate.png",
-    experienceTag: "To be Added",
-    summary: "Profile details for Shankar to be added.",
-    areasOfPractice: [], // Empty array for now
-    detailedBackground: "Profile to be Added.",
+    name: "Dr. CA M. S. Sankar",
+    title: "Chartered Accountant & Insolvency Professional",
+    imageUrl: "/shankar.jpg", // Replace with his actual image URL
+    experienceTag: "37+ Years | CA & IP | Ph.D.",
+    summary:
+      "Dr. CA M. S. Sankar is a highly qualified Chartered Accountant and Insolvency Professional with over 3.7 decades of diverse experience in practice, government service, and corporate insolvency resolution.",
+    areasOfPractice: [
+      "Corporate Insolvency Resolution (CIRP)",
+      "Liquidation Process",
+      "Chartered Accountancy",
+      "Financial Management",
+      "Government Treasury Operations",
+      "Corporate Law",
+      "Auditing",
+    ],
+    detailedBackground:
+      "Dr. CA M. S. Sankar is a Science Graduate from Madurai Kamaraj University and an alumnus of The Madura College and TVS High School, Madurai. He is a fellow Chartered Accountant, Company Secretary, and holds a Post Graduate Diploma in Management (Finance). He earned his Ph.D. from Bharathidasan University, Tiruchirappalli. With over 37 years of experience, his career spans private practice and significant roles within the Tamil Nadu Government as Additional Director of Treasuries and Accounts. As an Insolvency Professional, he successfully completed the CIRP of M/s. Neueon Towers Limited, a listed company with an exposure of over ₹3500 Crore. He has served as an Interim Resolution Professional (IRP) for 7 CIRPs, with four concluding in withdrawal under Section 12A and one proceeding to liquidation.",
   },
 ];
 

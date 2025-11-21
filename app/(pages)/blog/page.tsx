@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/legacy/image"; // Import the Image component
+import Image from "next/image"; // Import the Image component
 import { blogPosts } from "@/data/blogPosts";
 import Card from "@/components/ui/Card";
 
@@ -33,9 +33,12 @@ export default function BlogPage() {
                     src={post.coverImage}
                     alt={`Cover image for ${post.title}`}
                     fill
-                    style={{ objectFit: "cover" }}
                     className="transition-transform duration-300 group-hover:scale-105"
-                  />
+                    style={{
+                      objectFit: "cover",
+                      maxWidth: "100%",
+                      height: "auto"
+                    }} />
                 </div>
                 {/* Content Section */}
                 <div className="p-6 flex flex-col flex-grow">

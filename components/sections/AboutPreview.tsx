@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Button from "../ui/Button";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export default function AboutPreview() {
   return (
@@ -34,9 +34,14 @@ export default function AboutPreview() {
           src="/office-image.png"
           alt="Firm's office interior"
           className="rounded-lg shadow-xl"
-          width={500} // Replace with the actual width of your image
-          height={300} // Replace with the actual height of your image
-        />
+          // Replace with the actual width of your image
+          width={500}
+          // Replace with the actual height of your image
+          height={300}
+          style={{
+            maxWidth: "100%",
+            height: "auto"
+          }} />
       </div>
     </motion.section>
   );

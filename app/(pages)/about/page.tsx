@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 // A simple component for statistics
 const StatItem = ({ value, label }: { value: string; label: string }) => (
@@ -57,7 +57,6 @@ export default function AboutUsPage() {
           </motion.p>
         </div>
       </div>
-
       {/* Our Story Section */}
       <motion.section
         className="py-16 md:py-24"
@@ -86,16 +85,19 @@ export default function AboutUsPage() {
           </div>
           <div className="order-1 md:order-2">
             <Image
-              src="/frim-building.jpg" // Replace with a real image
+              // Replace with a real image
+              src="/frim-building.jpg"
               alt="Our Firm's Office"
               width={500}
               height={400}
               className="rounded-lg shadow-xl mx-auto"
-            />
+              style={{
+                maxWidth: "100%",
+                height: "auto"
+              }} />
           </div>
         </div>
       </motion.section>
-
       {/* Mission & Vision Section */}
       <div className="bg-neutral-light-grey py-16 md:py-24">
         <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12">
@@ -143,7 +145,6 @@ export default function AboutUsPage() {
           </motion.div>
         </div>
       </div>
-
       {/* Our Strength Section */}
       <motion.section
         className="py-16 md:py-24"
@@ -169,7 +170,6 @@ export default function AboutUsPage() {
           </div>
         </div>
       </motion.section>
-
       {/* CTA to Team Page */}
       <div className="bg-brand-navy text-center py-16">
         <h2 className="text-3xl font-serif text-brand-gold mb-4">
