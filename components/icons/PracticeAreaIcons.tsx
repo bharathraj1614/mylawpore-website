@@ -1,112 +1,304 @@
 import React from "react";
 
-const iconProps = {
-  className: "h-12 w-12 mb-4 text-brand-gold",
-  strokeWidth: 1.5,
-};
+const svgBase = "h-12 w-12 text-brand-navy transition-colors duration-300";
 
+// Helper for dual-tone style: Main strokes are Navy (currentColor), Accents are Gold
 export const BankingIcon = () => (
-  <svg {...iconProps} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <svg
+    className={svgBase}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <path
+      d="M3 21H21"
+      stroke="currentColor"
+      strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h6M9 12h6m-6 5.25h6M5.25 3h13.5v18H5.25z"
+    />
+    <path
+      d="M5 21V7L12 3L19 7V21"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M9 10C9 10 10 11.5 12 11.5C14 11.5 15 10 15 10"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    {/* Gold Accent: The Coin/Vault circle */}
+    <circle
+      cx="12"
+      cy="14"
+      r="2"
+      className="fill-brand-gold/20 stroke-brand-gold"
+      strokeWidth="1.5"
     />
   </svg>
 );
 
 export const PropertyIcon = () => (
-  <svg {...iconProps} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <svg
+    className={svgBase}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <path
+      d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z"
+      stroke="currentColor"
+      strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M2.25 12l8.954-8.955a1.5 1.5 0 012.122 0l8.954 8.955M2.25 12v8.25a.75.75 0 00.75.75h16.5a.75.75 0 00.75-.75V12M18 12h-2.25m-1.5 0h-5.25m-1.5 0H6"
     />
+    <path
+      d="M9 22V12H15V22"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    {/* Gold Accent: The Key/Lock aspect */}
+    <rect x="11" y="15" width="2" height="4" className="fill-brand-gold" />
   </svg>
 );
 
 export const CompanyIcon = () => (
-  <svg {...iconProps} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path
+  <svg
+    className={svgBase}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect
+      x="2"
+      y="7"
+      width="20"
+      height="14"
+      rx="2"
+      stroke="currentColor"
+      strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h6M9 12h6M9 16.5h6"
+    />
+    <path
+      d="M16 21V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V21"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    {/* Gold Accent: The Clasp */}
+    <path
+      d="M12 11V13"
+      className="stroke-brand-gold"
+      strokeWidth="2"
+      strokeLinecap="round"
     />
   </svg>
 );
 
 export const LabourIcon = () => (
-  <svg {...iconProps} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <svg
+    className={svgBase}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <path
+      d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21"
+      stroke="currentColor"
+      strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.6-3.75a11.959 11.959 0 01-2.002-3.036m-11.218 0A12.015 12.015 0 0112 2.25c1.605 0 3.11.454 4.402 1.218"
+    />
+    <path
+      d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    {/* Gold Accent: The Gear (Industry) */}
+    <path
+      d="M23 9C23 9 20 9 20 12M20 12C20 15 23 15 23 15M20 12H16"
+      className="stroke-brand-gold"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
 
 export const ArbitrationIcon = () => (
-  <svg {...iconProps} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <svg
+    className={svgBase}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <path
+      d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V7C3 6.46957 3.21071 5.96086 3.58579 5.58579C3.96086 5.21071 4.46957 5 5 5H19C19.5304 5 20.0391 5.21071 20.4142 5.58579C20.7893 5.96086 21 6.46957 21 7V15Z"
+      stroke="currentColor"
+      strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6M3 9v11.25M21 9v11.25"
+    />
+    {/* Gold Accent: Handshake or Agreement lines */}
+    <path
+      d="M8 11H16"
+      className="stroke-brand-gold"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+    <path
+      d="M8 11L10 9M16 11L14 13"
+      className="stroke-brand-gold"
+      strokeWidth="1.5"
+      strokeLinecap="round"
     />
   </svg>
 );
 
 export const CyberCrimeIcon = () => (
-  <svg {...iconProps} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <svg
+    className={svgBase}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <path
+      d="M12 22S20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z"
+      stroke="currentColor"
+      strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M12 1.5v21m-8.25-6.75h16.5M12 1.5c-4.142 0-7.5 3.358-7.5 7.5s3.358 7.5 7.5 7.5 7.5-3.358 7.5-7.5S16.142 1.5 12 1.5z"
+    />
+    {/* Gold Accent: The Lock Circuit */}
+    <path d="M12 8V11" className="stroke-brand-gold" strokeWidth="1.5" />
+    <rect
+      x="10"
+      y="11"
+      width="4"
+      height="4"
+      rx="1"
+      className="fill-brand-gold/20 stroke-brand-gold"
+      strokeWidth="1.5"
     />
   </svg>
 );
 
 export const JurisdictionIcon = () => (
-  <svg {...iconProps} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <svg
+    className={svgBase}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M2 12H22" stroke="currentColor" strokeWidth="1.5" />
     <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M12 3v18m-6.75-9H18.75"
+      d="M12 2A15.3 15.3 0 0 1 16 12A15.3 15.3 0 0 1 12 22A15.3 15.3 0 0 1 8 12A15.3 15.3 0 0 1 12 2Z"
+      stroke="currentColor"
+      strokeWidth="1.5"
     />
-    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3L6 9m6-6l6 6" />
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M12 21l-6-6m6 6l6-6"
-    />
+    {/* Gold Accent: Location Marker */}
+    <circle cx="12" cy="12" r="3" className="fill-brand-gold" />
   </svg>
 );
 
 export const TaxIcon = () => (
-  <svg {...iconProps} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <svg
+    className={svgBase}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <path
+      d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z"
+      stroke="currentColor"
+      strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 01-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
     />
+    <path
+      d="M14 2V8H20"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    {/* Gold Accent: Percentage */}
+    <path
+      d="M9 15L15 11"
+      className="stroke-brand-gold"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+    />
+    <circle cx="10" cy="11" r="1" className="fill-brand-gold" />
+    <circle cx="14" cy="15" r="1" className="fill-brand-gold" />
   </svg>
 );
 
 export const TestamentaryIcon = () => (
-  <svg {...iconProps} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <svg
+    className={svgBase}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <path
+      d="M19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21Z"
+      stroke="currentColor"
+      strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"
     />
+    {/* Gold Accent: The Feather Pen */}
+    <path
+      d="M12 11C12 11 15.5 7 17 7C18.5 7 18 9 16.5 10.5C15 12 11 16 11 16"
+      className="stroke-brand-gold"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path d="M11 16L9 18L8 16L11 16Z" className="fill-brand-gold" />
   </svg>
 );
 
 export const GeneralMattersIcon = () => (
-  <svg {...iconProps} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <svg
+    className={svgBase}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <path
+      d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"
+      stroke="currentColor"
+      strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"
+    />
+    <path
+      d="M6.5 2H20V22H6.5A2.5 2.5 0 0 1 4 19.5V4.5A2.5 2.5 0 0 1 6.5 2Z"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    {/* Gold Accent: Bookmark */}
+    <path
+      d="M12 2V8L14 6L16 8V2"
+      className="fill-brand-gold/20 stroke-brand-gold"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );

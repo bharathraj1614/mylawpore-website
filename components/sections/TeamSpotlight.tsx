@@ -123,10 +123,10 @@ export default function TeamSpotlight() {
                 )}
 
               {/* View Full Profile (linking to a dedicated page or opening a modal) */}
-              <div className="mt-auto text-center pt-4 border-t border-neutral-light-grey">
+              {/* <div className="mt-auto text-center pt-4 border-t border-neutral-light-grey">
                 {" "}
-                {/* mt-auto for bottom alignment */}
-                {/* Option 1: Link to a full profile page */}
+                mt-auto for bottom alignment
+                Option 1: Link to a full profile page
                 <Button
                   href={`/our-team/${advocate.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
                   variant="primary"
@@ -134,11 +134,11 @@ export default function TeamSpotlight() {
                 >
                   View Full Profile
                 </Button>
-                {/* Option 2: If you prefer a modal on the same page */}
-                {/* <Button onClick={() => setSelectedAdvocate(advocate)} variant="primary" size="sm">
+                Option 2: If you prefer a modal on the same page
+                <Button onClick={() => setSelectedAdvocate(advocate)} variant="primary" size="sm">
                   View Full Profile
-                </Button> */}
-              </div>
+                </Button>
+              </div> */}
             </motion.div>
           ))}
         </div>

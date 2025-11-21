@@ -30,7 +30,7 @@ export default function Card({ children, className, href }: CardProps) {
       variants={cardVariants}
       initial="initial"
       whileInView="animate" // Animates when it comes into view
-      viewport={{ once: true, amount: 0.8 }} // Animates only once, when 80% of it is visible
+      viewport={{ once: true, amount: 0.2 }} // Animates only once, when 80% of it is visible
       whileHover="hover" // Apply hover animation
       className={`${baseStyles} ${className || ""}`}
     >
