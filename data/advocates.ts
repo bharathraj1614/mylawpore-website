@@ -12,7 +12,7 @@ export const advocates: Advocate[] = [
   {
     name: "Mr. K.V. Subramanian",
     title: "Senior Counsel", // Keeping original title
-    imageUrl: "/advocate.png",
+    imageUrl: "/subs.png",
     experienceTag: "48+ Years | Senior Advocate", // Concise experience tag
     summary: `Mr. K.V. Subramanian is a highly experienced Senior Advocate and Constitutional Expert, practicing since 1977. He consistently appears before the Hon’ble High Court of Judicature at Madras, DRT, DRAT, and the Supreme Court of India.`,
     areasOfPractice: [
@@ -60,7 +60,7 @@ export const advocates: Advocate[] = [
   {
     name: "Mr. M.A. Abdul Wahab",
     title: "Advocate",
-    imageUrl: "/abdul.jpg",
+    imageUrl: "/abdul.png",
     experienceTag: "32 Years Experience", // Concise experience tag
     summary: `Mr. M.A. Abdul Wahab has over 32 years of experience before the Hon’ble High Court at Madras and various tribunals, specializing in Civil, Original, and Appellate Jurisdictions.`,
     areasOfPractice: [
@@ -98,7 +98,7 @@ export const advocates: Advocate[] = [
   {
     name: "Mr. S. Deenadhayalan",
     title: "Advocate & Commissioner of Oath",
-    imageUrl: "/deena.jpg",
+    imageUrl: "/deena.png",
     experienceTag: "7 Years Experience", // Concise experience tag
     summary: `Mr. S. Deenadhayalan, an Advocate and Commissioner of Oath, has 7 years of practice before the High Court at Madras and various tribunals, specializing in Civil and Debt Recovery matters.`,
     areasOfPractice: [
