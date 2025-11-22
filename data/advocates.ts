@@ -35,7 +35,7 @@ export const advocates: Advocate[] = [
   {
     name: "Mr. R. Jagadeesan",
     title: "Advocate",
-    imageUrl: "/jagath.jpg",
+    imageUrl: "/jagath.png",
     experienceTag: "Vast Legal Expertise | Former Banker", // Concise experience tag
     summary: `Mr. R. Jagadeesan is a postgraduate in Law with vast legal expertise, particularly in Arbitration, Banking, and Property Matters, following a career in a Nationalized Bank.`,
     areasOfPractice: [
