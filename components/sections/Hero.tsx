@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { easeOut, motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Button from "../ui/Button";
 
 // Animation Variants
@@ -13,18 +13,6 @@ const containerVariants = {
     transition: {
       staggerChildren: 0.25,
       delayChildren: 0.3,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: [0.22, 1, 0.36, 1], // Custom "easeOutQuart" for a premium feel
     },
   },
 };
