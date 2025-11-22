@@ -88,7 +88,7 @@ export default function PracticeAreas() {
             return (
               <motion.div
                 key={area.title || index}
-                variants={cardVariants}
+                // variants={cardVariants}
                 className="group relative bg-white p-8 rounded-2xl shadow-sm border border-neutral-100 hover:shadow-2xl hover:border-brand-gold/20 transition-all duration-300 flex flex-col h-full hover:-translate-y-1"
               >
                 {/* 

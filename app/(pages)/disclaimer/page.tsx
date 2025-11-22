@@ -68,7 +68,7 @@ export default function DisclaimerPage() {
             <article className="prose prose-neutral prose-lg max-w-none">
               {/* Section 1 */}
               <motion.section
-                variants={itemVariants}
+                // variants={itemVariants}
                 className="mb-10 md:mb-14"
               >
                 <h2 className="flex items-center text-2xl md:text-3xl font-serif text-brand-navy font-semibold mb-4 pb-2 border-b border-neutral-200">
@@ -86,7 +86,7 @@ export default function DisclaimerPage() {
 
               {/* Section 2 */}
               <motion.section
-                variants={itemVariants}
+                //variants={itemVariants}
                 className="mb-10 md:mb-14"
               >
                 <h2 className="flex items-center text-2xl md:text-3xl font-serif text-brand-navy font-semibold mb-4 pb-2 border-b border-neutral-200">
@@ -122,7 +122,7 @@ export default function DisclaimerPage() {
 
               {/* Section 3 */}
               <motion.section
-                variants={itemVariants}
+                //variants={itemVariants}
                 className="mb-10 md:mb-14"
               >
                 <h2 className="flex items-center text-2xl md:text-3xl font-serif text-brand-navy font-semibold mb-4 pb-2 border-b border-neutral-200">
@@ -138,7 +138,7 @@ export default function DisclaimerPage() {
 
               {/* Section 4 */}
               <motion.section
-                variants={itemVariants}
+                //variants={itemVariants}
                 className="mb-10 md:mb-14"
               >
                 <h2 className="flex items-center text-2xl md:text-3xl font-serif text-brand-navy font-semibold mb-4 pb-2 border-b border-neutral-200">
@@ -157,7 +157,7 @@ export default function DisclaimerPage() {
 
               {/* Section 5 */}
               <motion.section
-                variants={itemVariants}
+                //variants={itemVariants}
                 className="mb-10 md:mb-14"
               >
                 <h2 className="flex items-center text-2xl md:text-3xl font-serif text-brand-navy font-semibold mb-4 pb-2 border-b border-neutral-200">
@@ -172,7 +172,7 @@ export default function DisclaimerPage() {
 
               {/* Section 6 */}
               <motion.section
-                variants={itemVariants}
+                //variants={itemVariants}
                 className="mb-10 md:mb-14"
               >
                 <h2 className="flex items-center text-2xl md:text-3xl font-serif text-brand-navy font-semibold mb-4 pb-2 border-b border-neutral-200">
@@ -190,7 +190,10 @@ export default function DisclaimerPage() {
               </motion.section>
 
               {/* Section 7 */}
-              <motion.section variants={itemVariants} className="mb-8">
+              <motion.section
+                // variants={itemVariants}
+                className="mb-8"
+              >
                 <h2 className="flex items-center text-2xl md:text-3xl font-serif text-brand-navy font-semibold mb-4 pb-2 border-b border-neutral-200">
                   Changes to Disclaimer
                 </h2>
@@ -204,7 +207,7 @@ export default function DisclaimerPage() {
 
             {/* Footer / Last Updated */}
             <motion.div
-              variants={itemVariants}
+              // variants={itemVariants}
               className="mt-12 pt-6 border-t border-neutral-200 flex flex-col md:flex-row justify-between items-center gap-4"
             >
               <span className="px-4 py-1 rounded-full bg-neutral-100 text-neutral-500 text-sm font-medium">

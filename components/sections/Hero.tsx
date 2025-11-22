@@ -78,40 +78,28 @@ export default function Hero() {
         style={{ opacity: opacityChange }} // Fades out content as you scroll down
       >
         {/* Badge */}
-        <motion.div variants={itemVariants} className="mb-6">
+        <motion.div className="mb-6">
           <span className="inline-block py-1 px-4 border border-brand-gold/50 rounded-full text-brand-gold text-xs md:text-sm font-serif tracking-[0.2em] uppercase bg-brand-navy/30 backdrop-blur-sm">
             Est. 1979
           </span>
         </motion.div>
 
         {/* Main Headline */}
-        <motion.h1
-          className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-bold text-white mb-6 drop-shadow-lg leading-[1.1]"
-          variants={itemVariants}
-        >
+        <motion.h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-bold text-white mb-6 drop-shadow-lg leading-[1.1]">
           Law is <span className="text-brand-gold italic">Dharma</span>
         </motion.h1>
 
         {/* Decorative Divider */}
-        <motion.div
-          variants={itemVariants}
-          className="w-24 h-1 bg-brand-gold mb-8 rounded-full"
-        />
+        <motion.div className="w-24 h-1 bg-brand-gold mb-8 rounded-full" />
 
         {/* Subheadline */}
-        <motion.p
-          className="text-lg md:text-xl lg:text-2xl text-neutral-200 max-w-xl md:max-w-2xl mx-auto mb-10 font-light leading-relaxed"
-          variants={itemVariants}
-        >
+        <motion.p className="text-lg md:text-xl lg:text-2xl text-neutral-200 max-w-xl md:max-w-2xl mx-auto mb-10 font-light leading-relaxed">
           Upholding a tradition of legal excellence, integrity, and unwavering
           advocacy for over four decades.
         </motion.p>
 
         {/* CTA Buttons */}
-        <motion.div
-          variants={itemVariants}
-          className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
-        >
+        <motion.div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
           <Button
             href="/contact"
             variant="primary"

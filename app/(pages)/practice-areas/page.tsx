@@ -121,7 +121,10 @@ export default function PracticeAreasPage() {
               const IconComponent = area.icon;
 
               return (
-                <motion.div key={area.title || index} variants={itemVariants}>
+                <motion.div
+                  key={area.title || index}
+                  // variants={itemVariants}
+                >
                   <div className="group h-full bg-white p-8 rounded-2xl shadow-sm border border-neutral-100 hover:shadow-xl hover:border-brand-gold/30 transition-all duration-300 flex flex-col relative top-0 hover:-top-2">
                     {/* Icon */}
                     <div className="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-full bg-brand-navy/5 text-brand-navy group-hover:bg-brand-gold group-hover:text-brand-navy transition-colors duration-300">
@@ -177,7 +180,10 @@ export default function PracticeAreasPage() {
             */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
             {courtsAndTribunals.map((court, index) => (
-              <motion.div key={index} variants={itemVariants}>
+              <motion.div
+                key={index}
+                // variants={itemVariants}
+              >
                 <div className="flex items-start gap-4 p-5 rounded-lg bg-neutral-50 border border-neutral-200 hover:border-brand-navy/30 hover:bg-white hover:shadow-md transition-all duration-300 cursor-default group">
                   {/* Icon */}
                   <div className="shrink-0 mt-1 text-neutral-400 group-hover:text-brand-gold transition-colors">

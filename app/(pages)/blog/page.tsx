@@ -117,7 +117,7 @@ export default function BlogPage() {
           {blogPosts.map((post) => (
             <motion.article
               key={post.slug}
-              variants={cardVariants}
+              // variants={cardVariants}
               className="h-full"
             >
               <Link href={`/blog/${post.slug}`} className="block h-full group">
@@ -134,7 +134,8 @@ export default function BlogPage() {
                     {/* Category Badge Overlay */}
                     <div className="absolute top-4 left-4">
                       <span className="px-3 py-1 bg-brand-navy/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow-md">
-                        {post.category || "Legal Update"}
+                        Legal Update
+                        {/* {post.category || "Legal Update"} */}
                       </span>
                     </div>
                   </div>
