@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { easeOut, motion, AnimatePresence } from "framer-motion";
-import { advocates, Advocate } from "@/data/advocates";
+import { advocates, Advocate } from "@/data/advocates"; // Ensure path is correct
 import Image from "next/image";
 
-// --- UI Icons (No external deps) ---
+// --- UI Icons ---
 const ArrowRight = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -43,8 +43,8 @@ const CloseIcon = () => (
 const GavelIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="16"
-    height="16"
+    width="18"
+    height="18"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -65,19 +65,16 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.15 },
+    transition: { staggerChildren: 0.1 },
   },
 };
 
-// typed custom easing to avoid 'any' cast
-const customEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
-
 const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: customEase },
+    transition: { duration: 0.5, ease: easeOut },
   },
 };
 
@@ -86,7 +83,7 @@ export default function OurTeamPage() {
     null
   );
 
-  // Prevent background scrolling when modal is open
+  // Lock body scroll when modal is open
   useEffect(() => {
     if (selectedAdvocate) {
       document.body.style.overflow = "hidden";
@@ -99,25 +96,25 @@ export default function OurTeamPage() {
   }, [selectedAdvocate]);
 
   return (
-    <div className="min-h-screen bg-neutral-50">
+    <div className="min-h-screen bg-neutral-50 font-sans">
       {/* --- Hero Section --- */}
-      <div className="relative bg-brand-navy text-white pt-20 pb-24 md:pt-24 md:pb-32 overflow-hidden">
-        {/* Decorative Background Circle */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+      <div className="relative bg-brand-navy text-white pt-28 pb-20 md:pt-32 md:pb-32 overflow-hidden px-4">
+        {/* Abstract Background Element */}
+        <div className="absolute -top-24 -right-24 w-80 h-80 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
 
-        <div className="container mx-auto px-4 text-center relative z-10">
+        <div className="container mx-auto text-center relative z-10 max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block py-1 px-3 border border-brand-gold/30 rounded-full text-brand-gold text-xs font-bold tracking-widest uppercase mb-4">
+            <span className="inline-block py-1 px-3 border border-brand-gold/40 rounded-full text-brand-gold text-xs md:text-sm font-bold tracking-widest uppercase mb-4 bg-brand-navy/50 backdrop-blur-sm">
               Legal Experts
             </span>
-            <h1 className="text-4xl md:text-6xl font-serif text-white mb-6">
+            <h1 className="text-4xl md:text-6xl font-serif text-white mb-6 leading-tight">
               Meet Our Team
             </h1>
-            <p className="text-lg md:text-xl text-neutral-300 max-w-2xl mx-auto font-light leading-relaxed">
+            <p className="text-base md:text-xl text-neutral-200 max-w-2xl mx-auto leading-relaxed">
               A collective of seasoned legal professionals dedicated to
               upholding justice with integrity and excellence.
             </p>
@@ -126,9 +123,9 @@ export default function OurTeamPage() {
       </div>
 
       {/* --- Team Grid --- */}
-      <div className="container mx-auto px-4 -mt-16 md:-mt-20 pb-24 relative z-20">
+      <div className="container mx-auto px-4 -mt-10 md:-mt-16 pb-24 relative z-20">
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -137,49 +134,40 @@ export default function OurTeamPage() {
             <motion.div
               key={advocate.name}
               variants={cardVariants}
-              className="group relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-neutral-100 flex flex-col h-full"
+              className="group relative bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-neutral-200 flex flex-col h-full cursor-pointer"
               onClick={() => setSelectedAdvocate(advocate)}
             >
-              {/* Top Accent Bar */}
-              <div className="h-1 w-full bg-brand-gold/80 group-hover:h-2 group-hover:bg-brand-gold transition-all duration-300"></div>
-
-              <div className="p-8 flex flex-col items-center flex-grow cursor-pointer">
-                {/* Image Container */}
-                <div className="relative mb-6">
-                  <div className="absolute inset-0 bg-brand-navy rounded-full scale-105 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+              {/* Mobile Optimization: Reduced Padding */}
+              <div className="p-5 md:p-8 flex flex-col items-center flex-grow">
+                {/* Image */}
+                <div className="relative mb-4 md:mb-6 w-28 h-28 md:w-36 md:h-36">
                   <Image
                     src={advocate.imageUrl}
                     alt={advocate.name}
-                    width={140}
-                    height={140}
-                    className="rounded-full border-4 border-white shadow-md object-cover relative z-10 group-hover:scale-105 transition-transform duration-500"
-                    style={{ width: "140px", height: "140px" }}
+                    fill
+                    className="rounded-full border-4 border-neutral-50 shadow-sm object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, 250px"
                   />
-                  {advocate.experienceTag && (
-                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 z-20 whitespace-nowrap">
-                      <span className="bg-brand-navy text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border-2 border-white shadow-sm">
-                        {advocate.experienceTag}
-                      </span>
-                    </div>
-                  )}
                 </div>
 
-                {/* Content */}
+                {/* Text Info */}
                 <div className="text-center w-full">
-                  <h2 className="text-2xl font-serif text-brand-navy mb-1 group-hover:text-brand-gold transition-colors duration-300">
+                  <h2 className="text-xl md:text-2xl font-serif text-brand-navy mb-1 group-hover:text-brand-gold transition-colors">
                     {advocate.name}
                   </h2>
-                  <p className="text-sm font-semibold text-brand-gold uppercase tracking-widest mb-4">
+                  <p className="text-xs md:text-sm font-bold text-brand-gold uppercase tracking-wider mb-3">
                     {advocate.title}
                   </p>
-                  <p className="text-neutral-500 text-sm leading-relaxed mb-6 line-clamp-3">
+
+                  {/* Summary - Line clamped for uniformity */}
+                  <p className="text-neutral-600 text-sm leading-relaxed line-clamp-3 mb-4">
                     {advocate.summary}
                   </p>
                 </div>
 
-                {/* Button */}
+                {/* Button Indicator */}
                 <div className="mt-auto pt-4 w-full border-t border-neutral-100 flex justify-center">
-                  <span className="inline-flex items-center text-sm font-semibold text-brand-navy group-hover:text-brand-gold transition-colors gap-2">
+                  <span className="inline-flex items-center text-sm font-semibold text-brand-navy group-hover:text-brand-gold transition-colors gap-1.5">
                     View Profile <ArrowRight />
                   </span>
                 </div>
@@ -189,124 +177,125 @@ export default function OurTeamPage() {
         </motion.div>
       </div>
 
-      {/* --- Custom Modal Overlay --- */}
+      {/* --- Responsive Detail Modal --- */}
       <AnimatePresence>
         {selectedAdvocate && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center px-4 py-4 md:py-8">
+          <div className="fixed inset-0 z-[60] flex items-end md:items-center justify-center">
             {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedAdvocate(null)}
-              className="absolute inset-0 bg-brand-navy/60 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
             />
 
             {/* Modal Content */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ type: "spring", duration: 0.5 }}
-              className="relative bg-white w-full max-w-4xl max-h-full md:max-h-[85vh] rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row"
-              onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+              // Mobile: Slide up from bottom (100% height)
+              // Desktop: Fade in scale (Centered card)
+              initial={{ y: "100%", opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: "100%", opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="relative bg-white w-full h-full md:h-auto md:max-h-[85vh] md:max-w-4xl md:rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row md:transform-none"
+              onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button Mobile */}
+              {/* --- Mobile Sticky Header --- */}
+              <div className="md:hidden flex items-center justify-between px-4 py-3 border-b border-neutral-100 bg-white sticky top-0 z-50 shadow-sm">
+                <h3 className="font-serif text-brand-navy text-lg truncate pr-2">
+                  {selectedAdvocate.name}
+                </h3>
+                <button
+                  onClick={() => setSelectedAdvocate(null)}
+                  className="p-2 bg-neutral-100 rounded-full text-neutral-600 active:scale-95 transition-transform"
+                >
+                  <CloseIcon />
+                </button>
+              </div>
+
+              {/* --- Close Button (Desktop) --- */}
               <button
                 onClick={() => setSelectedAdvocate(null)}
-                className="absolute top-4 right-4 z-20 p-2 bg-white/80 rounded-full md:hidden text-brand-navy"
+                className="hidden md:flex absolute top-4 right-4 z-20 p-2 bg-white/80 hover:bg-white rounded-full text-neutral-500 hover:text-brand-navy transition-colors shadow-sm"
               >
                 <CloseIcon />
               </button>
 
-              {/* Left Side: Visual Profile (Desktop) / Top Header (Mobile) */}
-              <div className="w-full md:w-1/3 bg-neutral-50 border-b md:border-b-0 md:border-r border-neutral-200 p-8 md:p-10 flex flex-col items-center text-center overflow-y-auto">
-                <div className="relative w-32 h-32 md:w-40 md:h-40 mb-6">
+              {/* --- Left Side: Profile Visuals --- */}
+              <div className="w-full md:w-1/3 bg-neutral-50 p-6 md:p-10 flex flex-col items-center text-center border-b md:border-b-0 md:border-r border-neutral-200 shrink-0">
+                <div className="relative w-28 h-28 md:w-40 md:h-40 mb-4">
                   <Image
                     src={selectedAdvocate.imageUrl}
                     alt={selectedAdvocate.name}
                     fill
-                    className="rounded-full border-4 border-white shadow-lg object-cover"
+                    className="rounded-full border-4 border-white shadow-md object-cover"
                   />
                 </div>
-
-                <h2 className="text-2xl md:text-3xl font-serif text-brand-navy mb-2">
+                <h2 className="text-2xl md:text-3xl font-serif text-brand-navy mb-1">
                   {selectedAdvocate.name}
                 </h2>
-                <p className="text-brand-gold font-bold text-sm uppercase tracking-wider mb-6">
+                <p className="text-brand-gold font-bold text-xs md:text-sm uppercase tracking-wider mb-4">
                   {selectedAdvocate.title}
                 </p>
 
-                {/* Quick Info Pills */}
-                <div className="w-full space-y-3">
-                  {selectedAdvocate.experienceTag && (
-                    <div className="bg-white p-3 rounded-lg border border-neutral-200 shadow-sm">
-                      <p className="text-xs text-neutral-400 uppercase font-bold">
-                        Experience
-                      </p>
-                      <p className="text-brand-navy font-semibold">
-                        {selectedAdvocate.experienceTag}
-                      </p>
-                    </div>
-                  )}
-                </div>
+                {selectedAdvocate.experienceTag && (
+                  <span className="inline-block bg-white border border-neutral-200 px-3 py-1 rounded-full text-xs font-bold text-brand-navy shadow-sm mb-2">
+                    {selectedAdvocate.experienceTag}
+                  </span>
+                )}
               </div>
 
-              {/* Right Side: Details (Scrollable) */}
-              <div className="w-full md:w-2/3 p-8 md:p-10 overflow-y-auto relative bg-white">
-                {/* Close Button Desktop */}
-                <button
-                  onClick={() => setSelectedAdvocate(null)}
-                  className="hidden md:block absolute top-6 right-6 text-neutral-400 hover:text-brand-navy transition-colors"
-                >
-                  <CloseIcon />
-                </button>
-
-                <div className="max-w-2xl">
-                  {/* Section: Overview */}
+              {/* --- Right Side: Content (Scrollable) --- */}
+              <div className="w-full md:w-2/3 p-6 md:p-10 overflow-y-auto bg-white h-full">
+                <div className="max-w-2xl mx-auto md:mx-0 pb-20 md:pb-0">
+                  {/* Overview */}
                   <div className="mb-8">
-                    <h3 className="text-lg font-serif text-brand-navy mb-3 flex items-center gap-2 border-b border-neutral-100 pb-2">
+                    <h4 className="text-lg font-serif text-brand-navy mb-3 flex items-center gap-2 border-b border-neutral-100 pb-2">
                       Overview
-                    </h3>
-                    <p className="text-neutral-600 leading-relaxed whitespace-pre-line">
+                    </h4>
+                    <p className="text-neutral-600 text-base leading-relaxed whitespace-pre-line">
                       {selectedAdvocate.summary}
                     </p>
                   </div>
 
-                  {/* Section: Areas of Practice */}
+                  {/* Expertise Tags */}
                   {selectedAdvocate.areasOfPractice &&
                     selectedAdvocate.areasOfPractice.length > 0 && (
                       <div className="mb-8">
-                        <h3 className="text-lg font-serif text-brand-navy mb-4 flex items-center gap-2 border-b border-neutral-100 pb-2">
+                        <h4 className="text-lg font-serif text-brand-navy mb-4 flex items-center gap-2 border-b border-neutral-100 pb-2">
                           <span className="text-brand-gold">
                             <GavelIcon />
-                          </span>{" "}
-                          Areas of Expertise
-                        </h3>
+                          </span>
+                          Expertise
+                        </h4>
                         <div className="flex flex-wrap gap-2">
-                          {selectedAdvocate.areasOfPractice.map(
-                            (area, index) => (
-                              <span
-                                key={index}
-                                className="px-3 py-1.5 bg-brand-navy/5 text-brand-navy text-sm font-medium rounded-md border border-brand-navy/10 hover:bg-brand-navy hover:text-white transition-colors cursor-default"
-                              >
-                                {area}
-                              </span>
-                            )
-                          )}
+                          {selectedAdvocate.areasOfPractice.map((area, idx) => (
+                            <span
+                              key={idx}
+                              className="px-3 py-1.5 bg-brand-navy/5 text-brand-navy text-sm font-medium rounded-lg border border-brand-navy/10"
+                            >
+                              {area}
+                            </span>
+                          ))}
                         </div>
                       </div>
                     )}
 
-                  {/* Section: Detailed Background */}
+                  {/* Detailed Background */}
                   {selectedAdvocate.detailedBackground && (
                     <div>
-                      <h3 className="text-lg font-serif text-brand-navy mb-3 border-b border-neutral-100 pb-2">
-                        Detailed Background
-                      </h3>
-                      <p className="text-neutral-600 text-sm md:text-base leading-7 whitespace-pre-line">
-                        {selectedAdvocate.detailedBackground}
-                      </p>
+                      <h4 className="text-lg font-serif text-brand-navy mb-3 border-b border-neutral-100 pb-2">
+                        Professional Background
+                      </h4>
+                      <div className="text-neutral-600 text-base leading-7 space-y-4">
+                        {/* Handling newlines properly if formatted in data */}
+                        {selectedAdvocate.detailedBackground
+                          .split("\n")
+                          .map((paragraph, i) => (
+                            <p key={i}>{paragraph}</p>
+                          ))}
+                      </div>
                     </div>
                   )}
                 </div>

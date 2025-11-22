@@ -1,50 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Button from "@/components/ui/Button";
-import { usePathname } from "next/navigation"; // Import usePathname for current page indication
-// import Image from "next/image";
-
-// Define your firm's SVG logo directly as a React component
-// const FirmLogoSVG = ({ size = 40, color = "#0D2745" }) => (
-//   <svg
-//     width={size}
-//     height={size}
-//     viewBox="0 0 24 24"
-//     fill="none"
-//     xmlns="http://www.w3.org/2000/svg"
-//     stroke={color}
-//     strokeWidth="1.5"
-//     strokeLinecap="round"
-//     strokeLinejoin="round"
-//     className="transform"
-//   >
-//     {/* Beam */}
-//     <line x1="4" y1="8" x2="20" y2="8" />
-
-//     {/* Fulcrum */}
-//     <circle cx="12" cy="4" r="1.5" />
-
-//     {/* Center pole */}
-//     <line x1="12" y1="4" x2="12" y2="18" />
-
-//     {/* Left pan */}
-//     <line x1="7" y1="8" x2="7" y2="12" />
-//     <circle cx="7" cy="14" r="2" />
-
-//     {/* Right pan */}
-//     <line x1="17" y1="8" x2="17" y2="12" />
-//     <circle cx="17" cy="14" r="2" />
-
-//     {/* Base */}
-//     <line x1="9" y1="18" x2="15" y2="18" />
-//   </svg>
-// );
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname(); // Get the current path
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  // Handle scroll effect for sticky header
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -52,121 +25,157 @@ export default function Header() {
     { name: "Our Team", href: "/our-team" },
     { name: "Practice Areas", href: "/practice-areas" },
     { name: "Blog", href: "/blog" },
-    { name: "Contact Us", href: "/contact" },
-    { name: "Disclaimer", href: "/disclaimer" },
+    { name: "Contact", href: "/contact" },
+    { name: "Disclaimer", href: "/disclaimer" }, // Shortened for better fit
   ];
 
   return (
-    <header className="bg-brand-navy text-white shadow-md sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        {/* Logo - Now using inline SVG */}
-        <Link href="/" className="flex items-center space-x-2">
-          {/* <FirmLogoSVG size={40} color="#C0A062" />{" "} */}
-          {/* Use your SVG component */}
-          {/* <Image
-            src="/logo.png" // This path points to `public/logo.png`
-            alt="M/s. K.V. Subramanian Associatez Logo"
-            width={40} // Set a base width for the logo
-            height={20} // Set a corresponding height to maintain aspect ratio
-            priority // Tells Next.js to load this image first (good for LCP)
-          /> */}
-          <span className="text-xl font-serif font-bold text-brand-gold">
-            M/S. K.V. Subramanian Associatez
-          </span>
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-white/10 ${
+        scrolled
+          ? "bg-brand-navy/95 backdrop-blur-md shadow-lg py-3"
+          : "bg-brand-navy py-5"
+      }`}
+    >
+      <div className="container mx-auto px-4 lg:px-8 flex justify-between items-center">
+        {/* --- Logo --- */}
+        <Link href="/" className="flex items-center gap-3 z-50 relative">
+          {/* Optional: Uncomment if you want to use the image logo alongside text */}
+          {/* 
+          <div className="relative w-8 h-8 md:w-10 md:h-10 flex-shrink-0">
+             <Image src="/logo.png" alt="Logo" fill className="object-contain" />
+          </div> 
+          */}
+          <div className="flex flex-col">
+            <span className="text-lg md:text-xl lg:text-2xl font-serif font-bold text-brand-gold leading-tight tracking-wide">
+              K.V. Subramanian <span className="text-white">Associatez</span>
+            </span>
+            {/* Optional Tagline for larger screens */}
+            {/* <span className="hidden md:block text-[10px] text-neutral-300 tracking-widest uppercase">
+              Advocates & Legal Consultants
+            </span> */}
+          </div>
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-6 items-center">
+        {/* --- Desktop Navigation (Hidden on Mobile/Tablet) --- */}
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navLinks.map((link) => {
-            // Determine if the link is active
             const isActive =
               pathname === link.href ||
               (link.href !== "/" && pathname.startsWith(link.href));
+
             return (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`font-sans transition-colors duration-200 ${
+                className="relative group py-2"
+              >
+                <span
+                  className={`text-sm xl:text-base font-medium transition-colors duration-300 ${
+                    isActive
+                      ? "text-brand-gold"
+                      : "text-neutral-200 group-hover:text-white"
+                  }`}
+                >
+                  {link.name}
+                </span>
+                {/* Animated Underline */}
+                <span
+                  className={`absolute bottom-0 left-0 h-0.5 bg-brand-gold transition-all duration-300 ${
+                    isActive ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                />
+              </Link>
+            );
+          })}
+
+          {/* CTA Button */}
+          <div className="ml-2">
+            <Button href="/contact" variant="primary" size="sm">
+              Consultation
+            </Button>
+          </div>
+        </nav>
+
+        {/* --- Mobile Menu Toggle (Visible on Mobile/Tablet) --- */}
+        <button
+          className="lg:hidden text-neutral-100 hover:text-brand-gold transition-colors focus:outline-none z-50 relative p-2"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle navigation"
+          aria-expanded={isOpen}
+        >
+          <div className="w-6 h-6 relative flex flex-col justify-center gap-1.5">
+            <span
+              className={`block w-full h-0.5 bg-current transition-transform duration-300 ${
+                isOpen ? "rotate-45 translate-y-2" : ""
+              }`}
+            />
+            <span
+              className={`block w-full h-0.5 bg-current transition-opacity duration-300 ${
+                isOpen ? "opacity-0" : "opacity-100"
+              }`}
+            />
+            <span
+              className={`block w-full h-0.5 bg-current transition-transform duration-300 ${
+                isOpen ? "-rotate-45 -translate-y-2" : ""
+              }`}
+            />
+          </div>
+        </button>
+      </div>
+
+      {/* --- Mobile Navigation Overlay --- */}
+      {/* Using simple CSS transition for height/opacity to avoid heavy deps */}
+      <div
+        className={`fixed inset-0 bg-brand-navy z-40 transition-all duration-300 lg:hidden flex flex-col pt-24 px-6 ${
+          isOpen
+            ? "opacity-100 visible translate-y-0"
+            : "opacity-0 invisible -translate-y-5"
+        }`}
+      >
+        <nav className="flex flex-col space-y-1">
+          {navLinks.map((link, index) => {
+            const isActive =
+              pathname === link.href ||
+              (link.href !== "/" && pathname.startsWith(link.href));
+
+            return (
+              <Link
+                key={link.name}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className={`text-2xl font-serif border-b border-white/10 py-4 transition-colors ${
                   isActive
-                    ? "text-brand-gold font-semibold"
-                    : "text-neutral-off-white hover:text-brand-gold"
+                    ? "text-brand-gold font-semibold pl-2"
+                    : "text-neutral-200 hover:text-white hover:pl-2"
                 }`}
+                style={{ transitionDelay: `${index * 50}ms` }} // Stagger effect
               >
                 {link.name}
               </Link>
             );
           })}
-          <Button href="/contact" variant="primary" size="sm">
+        </nav>
+
+        <div className="mt-8">
+          <Button
+            href="/contact"
+            variant="primary"
+            size="lg"
+            className="w-full justify-center"
+            onClick={() => setIsOpen(false)}
+          >
             Schedule a Consultation
           </Button>
-        </nav>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-neutral-off-white focus:outline-none"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle navigation"
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            {isOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            )}
-          </svg>
-        </button>
-      </div>
-
-      {/* Mobile Navigation */}
-      {isOpen && (
-        <nav className="md:hidden bg-brand-navy pb-4">
-          <div className="flex flex-col items-center space-y-4">
-            {navLinks.map((link) => {
-              const isActive =
-                pathname === link.href ||
-                (link.href !== "/" && pathname.startsWith(link.href));
-              return (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className={`font-sans transition-colors duration-200 ${
-                    isActive
-                      ? "text-brand-gold font-semibold"
-                      : "text-neutral-off-white hover:text-brand-gold"
-                  }`}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              );
-            })}
-            <Button
-              href="/contact"
-              variant="primary"
-              size="sm"
-              onClick={() => setIsOpen(false)}
-            >
-              Schedule a Consultation
-            </Button>
+          {/* Mobile Footer Info */}
+          <div className="mt-8 text-center text-neutral-400 text-xs">
+            <p>
+              © {new Date().getFullYear()} M/S. K.V. Subramanian Associatez
+            </p>
           </div>
-        </nav>
-      )}
+        </div>
+      </div>
     </header>
   );
 }

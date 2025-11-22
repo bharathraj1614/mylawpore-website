@@ -1,9 +1,9 @@
 "use client";
 
 import { easeOut, motion } from "framer-motion";
-import { featuredAdvocates } from "@/data/advocates"; // Ensure this import points to your updated data structure
+import { featuredAdvocates } from "@/data/advocates";
 import Image from "next/image";
-import Button from "../ui/Button"; // Assuming Button component is available
+import Button from "../ui/Button";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -28,9 +28,6 @@ const itemVariants = {
 };
 
 export default function TeamSpotlight() {
-  // If you want to show detailedBackground in a modal, you'd manage state here
-  // const [selectedAdvocate, setSelectedAdvocate] = useState(null);
-
   return (
     <motion.section
       className="py-16 md:py-24 bg-neutral-off-white"
@@ -49,128 +46,79 @@ export default function TeamSpotlight() {
             dedicated to your success.
           </p>
         </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {featuredAdvocates.map((advocate) => (
             <motion.div
               key={advocate.name}
-              className="text-center bg-white p-6 rounded-lg shadow-md border border-neutral-light-grey flex flex-col h-full" // Added flex for consistent card height
+              className="bg-white p-6 rounded-lg shadow-md border border-neutral-light-grey flex flex-col h-full"
               variants={itemVariants}
             >
-              {/* Header Section */}
-              <div className="flex flex-col items-center mb-4">
-                <Image
-                  src={advocate.imageUrl}
-                  alt={`Profile of ${advocate.name}`}
-                  // Slightly adjusted size for better fit
-                  width={120}
-                  height={120}
-                  // Added object-cover
-                  className="rounded-full mx-auto mb-3 border-4 border-brand-gold object-cover"
-                  style={{
-                    maxWidth: "100%",
-                    height: "auto",
-                  }}
-                />
+              {/* --- Profile Header --- */}
+              <div className="flex flex-col items-center mb-6 text-center">
+                <div className="relative w-32 h-32 mb-4">
+                  <Image
+                    src={advocate.imageUrl}
+                    alt={`Profile of ${advocate.name}`}
+                    fill
+                    className="rounded-full border-4 border-brand-gold object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
                 <h3 className="text-2xl font-serif text-brand-navy mb-1">
                   {advocate.name}
                 </h3>
                 <p className="text-brand-gold font-semibold text-lg mb-2">
                   {advocate.title}
                 </p>
-                {/* New: Experience Tag */}
+                {/* Experience / Status Tag */}
                 {advocate.experienceTag && (
-                  <span className="inline-block bg-brand-light-gold text-brand-navy text-xs font-medium px-3 py-1 rounded-full mb-3">
+                  <span className="inline-block bg-brand-light-gold/20 text-brand-navy text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
                     {advocate.experienceTag}
                   </span>
                 )}
               </div>
 
-              {/* Core Bio / Summary */}
-              <div className="mb-4 text-left">
-                <h4 className="text-lg font-semibold text-brand-navy mb-2">
-                  Overview
-                </h4>
-                <p className="text-neutral-grey font-sans leading-relaxed">
+              {/* --- Overview --- */}
+              <div className="mb-6 text-center">
+                <p className="text-neutral-grey font-sans text-sm leading-relaxed">
                   {advocate.summary}
                 </p>
               </div>
 
-              {/* Key Areas of Practice/Expertise */}
+              {/* --- Divider --- */}
+              <hr className="border-neutral-light-grey mb-6" />
+
+              {/* --- Full Expertise Tags --- */}
               {advocate.areasOfPractice &&
                 advocate.areasOfPractice.length > 0 && (
-                  <div className="mb-6 text-left flex-grow">
-                    {" "}
-                    {/* flex-grow to push button to bottom */}
-                    <h4 className="text-lg font-semibold text-brand-navy mb-2">
-                      Expertise
+                  <div className="mt-auto">
+                    <h4 className="text-sm font-bold text-brand-navy mb-3 uppercase tracking-wider text-center">
+                      Areas of Practice
                     </h4>
-                    <ul className="list-disc list-inside text-neutral-grey font-sans text-sm space-y-1">
-                      {advocate.areasOfPractice.slice(0, 3).map(
-                        (
-                          area,
-                          index // Show first 3, or adjust
-                        ) => (
-                          <li key={index}>{area}</li>
-                        )
-                      )}
-                      {advocate.areasOfPractice.length > 3 && (
-                        <li className="font-medium text-brand-gold">
-                          and more...
-                        </li>
-                      )}
-                    </ul>
+                    <div className="flex flex-wrap justify-center gap-2">
+                      {advocate.areasOfPractice.map((area, index) => (
+                        <span
+                          key={index}
+                          className="px-3 py-1 bg-neutral-100 text-neutral-600 text-xs font-medium rounded-md border border-neutral-200 whitespace-nowrap"
+                        >
+                          {area}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 )}
-
-              {/* View Full Profile (linking to a dedicated page or opening a modal) */}
-              {/* <div className="mt-auto text-center pt-4 border-t border-neutral-light-grey">
-                {" "}
-                mt-auto for bottom alignment
-                Option 1: Link to a full profile page
-                <Button
-                  href={`/our-team/${advocate.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
-                  variant="primary"
-                  size="sm"
-                >
-                  View Full Profile
-                </Button>
-                Option 2: If you prefer a modal on the same page
-                <Button onClick={() => setSelectedAdvocate(advocate)} variant="primary" size="sm">
-                  View Full Profile
-                </Button>
-              </div> */}
             </motion.div>
           ))}
         </div>
+
+        {/* Global Team Link */}
         <div className="text-center">
           <Button href="/our-team" variant="outline" size="lg">
             View Our Entire Team
           </Button>
         </div>
       </div>
-      {/* Optional: A Modal component for detailed background if you choose that approach */}
-      {/* {selectedAdvocate && (
-        <AdvocateDetailModal
-          advocate={selectedAdvocate}
-          onClose={() => setSelectedAdvocate(null)}
-        />
-      )} */}
     </motion.section>
   );
 }
-
-// Example of a simple Modal component (you'd define this separately)
-/*
-function AdvocateDetailModal({ advocate, onClose }) {
-  return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-      <div className="bg-white p-8 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-        <h2 className="text-3xl font-serif text-brand-navy mb-2">{advocate.name}</h2>
-        <p className="text-brand-gold font-semibold text-xl mb-4">{advocate.title}</p>
-        <p className="text-neutral-grey font-sans whitespace-pre-line">{advocate.detailedBackground}</p>
-        <Button onClick={onClose} className="mt-6">Close</Button>
-      </div>
-    </div>
-  );
-}
-*/
