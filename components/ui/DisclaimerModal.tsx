@@ -57,7 +57,10 @@ export default function DisclaimerModal({ onAccept }: DisclaimerModalProps) {
             <p className="text-sm sm:text-base leading-relaxed text-center mb-6">
               According to the rules of the Bar Council of India, we are not
               permitted to solicit work or advertise. By clicking on the
-              <span className="font-semibold text-brand-navy"> "I Agree" </span>
+              <span className="font-semibold text-brand-navy">
+                {" "}
+                &quot;I Agree&quot;{" "}
+              </span>
               button below, you acknowledge the following:
             </p>
 

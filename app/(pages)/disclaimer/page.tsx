@@ -105,9 +105,9 @@ export default function DisclaimerPage() {
                   </p>
                   <div className="bg-brand-navy/5 border-l-4 border-brand-navy p-4 rounded-r-lg my-4">
                     <p className="text-sm md:text-base text-brand-navy font-medium italic">
-                      "You should not act or rely on any information on this
-                      website without seeking the advice of a competent attorney
-                      licensed to practice in your jurisdiction."
+                      &quot;You should not act or rely on any information on
+                      this website without seeking the advice of a competent
+                      attorney licensed to practice in your jurisdiction.&quot;
                     </p>
                   </div>
                   <p>
