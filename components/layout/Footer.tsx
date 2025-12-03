@@ -97,10 +97,42 @@ export default function Footer() {
         <div>
           <h3 className="text-xl font-serif text-brand-gold mb-4">Contact</h3>
           <address className="not-italic text-sm font-sans space-y-2">
-            <p>No. 12A, Brindavanam Street,</p>
-            <p>Mylapore, Chennai – 600004,</p>
-            <p>Tamil Nadu, India.</p>
-            <p>Phone: +91 89257 33441</p>
+            <p>
+              <a
+                href="https://maps.app.goo.gl/nGXeGcqHE1bV9q9S7"
+                target="_blank"
+                rel="noreferrer"
+              >
+                No. 12A, Brindavanam Street,
+              </a>
+            </p>
+            <p>
+              <a
+                href="https://maps.app.goo.gl/nGXeGcqHE1bV9q9S7"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Mylapore, Chennai – 600004,
+              </a>
+            </p>
+            <p>
+              <a
+                href="https://maps.app.goo.gl/nGXeGcqHE1bV9q9S7"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Tamil Nadu, India.
+              </a>
+            </p>
+            <p>
+              Phone:{" "}
+              <a
+                href="tel:+918925733441"
+                className="hover:text-brand-gold transition-colors duration-200"
+              >
+                +91 89257 33441
+              </a>
+            </p>
             <p>
               Email:{" "}
               <a
