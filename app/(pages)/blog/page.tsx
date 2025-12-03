@@ -111,7 +111,7 @@ export default function BlogPage() {
               // variants={cardVariants}
               className="h-full"
             >
-              <Link href={`/blog/${post.slug}`} className="block h-full group">
+              <Link href={"/blog/" + post.slug} className="block h-full group">
                 <div className="bg-white h-full rounded-2xl overflow-hidden shadow-sm border border-neutral-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
                   {/* Image Container */}
                   <div className="relative w-full h-52 md:h-60 overflow-hidden bg-neutral-200">

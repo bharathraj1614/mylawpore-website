@@ -13,11 +13,17 @@ export default function Header() {
   // Handle scroll effect for sticky header
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      // Changed threshold to 50px so it doesn't flicker immediately at the top
+      setScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Close mobile menu if route changes
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -26,38 +32,29 @@ export default function Header() {
     { name: "Practice Areas", href: "/practice-areas" },
     { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
-    { name: "Disclaimer", href: "/disclaimer" }, // Shortened for better fit
+    { name: "Disclaimer", href: "/disclaimer" },
   ];
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-white/10 ${
+      // UPDATED CLASSNAMES HERE
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-brand-navy/95 backdrop-blur-md shadow-lg py-3"
-          : "bg-brand-navy py-5"
+          ? "bg-brand-navy shadow-xl py-3 border-b border-transparent" // Scrolled state: Solid, shadow, compact
+          : "bg-transparent py-5 lg:py-6 border-b border-white/10" // Top state: Transparent, taller, subtle border
       }`}
     >
       <div className="container mx-auto px-4 lg:px-8 flex justify-between items-center">
         {/* --- Logo --- */}
         <Link href="/" className="flex items-center gap-3 z-50 relative">
-          {/* Optional: Uncomment if you want to use the image logo alongside text */}
-          {/* 
-          <div className="relative w-8 h-8 md:w-10 md:h-10 flex-shrink-0">
-             <Image src="/logo.png" alt="Logo" fill className="object-contain" />
-          </div> 
-          */}
           <div className="flex flex-col">
-            <span className="text-lg md:text-xl lg:text-2xl font-serif font-bold text-brand-gold leading-tight tracking-wide">
+            <span className="text-lg md:text-xl lg:text-2xl font-serif font-bold text-brand-gold leading-tight tracking-wide transition-all duration-300">
               K.V. Subramanian <span className="text-white">Associatez</span>
             </span>
-            {/* Optional Tagline for larger screens */}
-            {/* <span className="hidden md:block text-[10px] text-neutral-300 tracking-widest uppercase">
-              Advocates & Legal Consultants
-            </span> */}
           </div>
         </Link>
 
-        {/* --- Desktop Navigation (Hidden on Mobile/Tablet) --- */}
+        {/* --- Desktop Navigation --- */}
         <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navLinks.map((link) => {
             const isActive =
@@ -97,7 +94,7 @@ export default function Header() {
           </div>
         </nav>
 
-        {/* --- Mobile Menu Toggle (Visible on Mobile/Tablet) --- */}
+        {/* --- Mobile Menu Toggle --- */}
         <button
           className="lg:hidden text-neutral-100 hover:text-brand-gold transition-colors focus:outline-none z-50 relative p-2"
           onClick={() => setIsOpen(!isOpen)}
@@ -125,9 +122,9 @@ export default function Header() {
       </div>
 
       {/* --- Mobile Navigation Overlay --- */}
-      {/* Using simple CSS transition for height/opacity to avoid heavy deps */}
       <div
-        className={`fixed inset-0 bg-brand-navy z-40 transition-all duration-300 lg:hidden flex flex-col pt-24 px-6 ${
+        // Added backdrop-blur to mobile menu for better readability over content
+        className={`fixed inset-0 bg-brand-navy/95 backdrop-blur-sm z-40 transition-all duration-500 lg:hidden flex flex-col pt-24 px-6 ${
           isOpen
             ? "opacity-100 visible translate-y-0"
             : "opacity-0 invisible -translate-y-5"
@@ -143,13 +140,14 @@ export default function Header() {
               <Link
                 key={link.name}
                 href={link.href}
+                // Added onClick to close menu when a link is clicked
                 onClick={() => setIsOpen(false)}
-                className={`text-2xl font-serif border-b border-white/10 py-4 transition-colors ${
+                className={`text-2xl font-serif border-b border-white/10 py-4 transition-all ${
                   isActive
                     ? "text-brand-gold font-semibold pl-2"
                     : "text-neutral-200 hover:text-white hover:pl-2"
                 }`}
-                style={{ transitionDelay: `${index * 50}ms` }} // Stagger effect
+                style={{ transitionDelay: `${index * 50}ms` }}
               >
                 {link.name}
               </Link>
@@ -168,7 +166,6 @@ export default function Header() {
             Schedule a Consultation
           </Button>
 
-          {/* Mobile Footer Info */}
           <div className="mt-8 text-center text-neutral-400 text-xs">
             <p>
               © {new Date().getFullYear()} M/S. K.V. Subramanian Associatez
