@@ -18,6 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog/understanding-employee-rights-in-india",
     "/blog/demystifying-arbitration-as-a-dispute-resolution-tool",
     "/blog/understanding-the-sarfaesi-act-2002",
+    "/terms-of-service",
+    "/privacy-policy",
   ];
 
   // 2. Create sitemap entries for static pages
