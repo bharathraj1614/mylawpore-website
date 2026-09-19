@@ -46,8 +46,15 @@ export default function Footer() {
               >
                 Practice Areas
               </Link>
-            </li>{" "}
-            {/* Assuming this page exists */}
+            </li>
+            <li>
+              <Link
+                href="/blog"
+                className="hover:text-brand-gold transition-colors duration-200 font-sans"
+              >
+                Legal Insights & Blog
+              </Link>
+            </li>
             <li>
               <Link
                 href="/contact"

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { featuredPracticeAreas } from "@/data/practiceAreas";
 import Button from "../ui/Button";
@@ -61,13 +62,9 @@ export default function PracticeAreas() {
             return (
               <motion.div
                 key={area.title || index}
-                // variants={cardVariants}
                 className="group relative bg-white p-8 rounded-2xl shadow-sm border border-neutral-100 hover:shadow-2xl hover:border-brand-gold/20 transition-all duration-300 flex flex-col h-full hover:-translate-y-1"
               >
-                {/* 
-                   Icon Container 
-                   FIX: Hover state now uses bg-brand-gold and text-brand-navy for high contrast.
-                */}
+                {/* Icon Container */}
                 <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full text-brand-navy transition-all duration-300 ease-out">
                   {IconComponent ? (
                     <div className="w-8 h-8">
@@ -78,10 +75,6 @@ export default function PracticeAreas() {
 
                 {/* Content */}
                 <div className="flex-grow">
-                  {/* 
-                     Title 
-                     FIX: Removed text-brand-gold on hover. It stays Navy for readability.
-                  */}
                   <h3 className="text-xl md:text-2xl font-serif text-brand-navy mb-3 font-medium">
                     {area.title}
                   </h3>
@@ -90,15 +83,17 @@ export default function PracticeAreas() {
                   </p>
                 </div>
 
-                {/* Bottom Action */}
-                {/* <div className="mt-auto pt-6 border-t border-neutral-100 flex items-center justify-between">
-                  <span className="text-xs font-bold text-brand-navy group-hover:text-brand-gold uppercase tracking-widest transition-colors duration-300">
-                    Learn More
-                  </span>
-                  <span className="text-brand-navy/30 group-hover:text-brand-gold group-hover:translate-x-1 transition-all duration-300">
-                    <ArrowIcon />
-                  </span>
-                </div> */}
+                {/* Bottom Action / Related Guide */}
+                {area.relatedBlogSlug && (
+                  <div className="mt-auto pt-4 border-t border-neutral-100">
+                    <Link
+                      href={`/blog/${area.relatedBlogSlug}`}
+                      className="inline-flex items-center text-xs font-bold text-brand-navy hover:text-brand-gold uppercase tracking-wider transition-colors duration-200"
+                    >
+                      {area.relatedBlogTitle || "Read Legal Guide"} →
+                    </Link>
+                  </div>
+                )}
               </motion.div>
             );
           })}

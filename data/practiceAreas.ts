@@ -16,6 +16,8 @@ export interface PracticeArea {
   title: string;
   description: string;
   icon: React.ComponentType;
+  relatedBlogSlug?: string;
+  relatedBlogTitle?: string;
 }
 
 export const practiceAreas: PracticeArea[] = [
@@ -24,12 +26,16 @@ export const practiceAreas: PracticeArea[] = [
     description:
       "Expert legal solutions for all banking matters, including DRT and SARFAESI applications.",
     icon: BankingIcon,
+    relatedBlogSlug: "understanding-the-sarfaesi-act-2002",
+    relatedBlogTitle: "SARFAESI Act 2002 Guide",
   },
   {
     title: "Property Matters",
     description:
       "Comprehensive legal services for all property-related matters, including disputes and documentation.",
     icon: PropertyIcon,
+    relatedBlogSlug: "navigating-property-disputes-in-chennai",
+    relatedBlogTitle: "Property Disputes Primer",
   },
   {
     title: "Company Matters",
@@ -42,12 +48,16 @@ export const practiceAreas: PracticeArea[] = [
     description:
       "Handling complex labour and service-related legal issues for both employers and employees.",
     icon: LabourIcon,
+    relatedBlogSlug: "understanding-employee-rights-in-india",
+    relatedBlogTitle: "Employee Rights in India",
   },
   {
     title: "Arbitration",
     description:
       "Resolving disputes efficiently through our expert arbitration and mediation services.",
     icon: ArbitrationIcon,
+    relatedBlogSlug: "demystifying-arbitration-as-a-dispute-resolution-tool",
+    relatedBlogTitle: "Arbitration vs Litigation Guide",
   },
   {
     title: "Banking Cyber Crime",
@@ -72,6 +82,8 @@ export const practiceAreas: PracticeArea[] = [
     description:
       "Assisting with wills, probate, and other testamentary and succession matters.",
     icon: TestamentaryIcon,
+    relatedBlogSlug: "the-importance-of-a-will-testamentary-law",
+    relatedBlogTitle: "Will & Probate Guide",
   },
   {
     title: "Rent & Electricity Matters",

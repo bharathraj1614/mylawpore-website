@@ -16,6 +16,19 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Editorial desk setup
+
+The private blog dashboard lives at `/admin`. It uses Supabase for Google sign-in, the blog database, and image storage.
+
+1. Create a Supabase project and run [`supabase/migrations/202609190001_editorial_desk.sql`](supabase/migrations/202609190001_editorial_desk.sql) in its SQL Editor.
+2. In Google Cloud, create a **Web application** OAuth client. Its authorized redirect URI must be `https://YOUR_PROJECT_REF.supabase.co/auth/v1/callback` (the Supabase callback, not this site’s callback). Copy the new client ID and client secret into Supabase **Authentication → Providers → Google**, then enable the provider.
+3. In Supabase **Authentication → URL Configuration**, set Site URL to `https://kvsassociatez.in` and add `https://kvsassociatez.in/api/auth/callback` plus `http://localhost:3000/api/auth/callback` to Redirect URLs. These are the URLs Supabase may return users to after Google has authenticated them.
+4. Copy [`.env.example`](.env.example) to `.env.local` and add the Supabase URL, anon key, service-role key, and Resend key. Do not expose the service-role key in the browser.
+5. Add the same variables to Vercel, redeploy, and visit `/admin`. The two initial owners are `mylawpore@gmail.com` and `bharathraj1614@gmail.com`.
+6. On the dashboard, use **Import existing posts** once to bring the current hard-coded articles into Supabase. Existing public URLs stay the same.
+
+Owners can add advocates, choose direct-publish rights per person, and manage the review queue. Without direct-publish rights, an advocate submits an article for owner review; owners and advocates receive the relevant Resend email notifications.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

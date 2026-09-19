@@ -1,10 +1,10 @@
 import { MetadataRoute } from "next";
-import { blogPosts } from "@/data/blogPosts";
+import { getPublishedPosts } from "@/lib/blog";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.kvsassociatez.in";
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const baseUrl = "https://kvsassociatez.in";
 
-  // 1. Define your static pages (including the new blog post URLs)
+  // Static site pages
   const staticPages = [
     "",
     "/about",
@@ -13,35 +13,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog",
     "/contact",
     "/disclaimer",
-    "/blog/navigating-property-disputes-in-chennai",
-    "/blog/the-importance-of-a-will-testamentary-law",
-    "/blog/understanding-employee-rights-in-india",
-    "/blog/demystifying-arbitration-as-a-dispute-resolution-tool",
-    "/blog/understanding-the-sarfaesi-act-2002",
     "/terms-of-service",
     "/privacy-policy",
   ];
 
-  // 2. Create sitemap entries for static pages
-  const staticEntries = staticPages.map((page) => ({
+  const staticEntries: MetadataRoute.Sitemap = staticPages.map((page) => ({
     url: `${baseUrl}${page}`,
     lastModified: new Date(),
+    changeFrequency: page === "" ? "weekly" : "monthly",
+    priority: page === "" ? 1.0 : 0.8,
   }));
 
-  // 3. Create sitemap entries for dynamic blog posts (from your data file)
-  // This will ensure any *future* posts added to your data file are also included automatically.
-  const blogEntries = blogPosts.map((post) => ({
+  // Dynamic blog post pages
+  const posts = await getPublishedPosts();
+  const blogEntries: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: post.date ? new Date(post.date) : new Date(),
+    lastModified: post.updatedAt ? new Date(post.updatedAt) : new Date(),
+    changeFrequency: "monthly",
+    priority: 0.9,
   }));
 
-  // 4. Combine all entries, removing any potential duplicates
-  const allEntries = [...staticEntries, ...blogEntries];
-
-  // Deduplicate based on URL just in case a static link matches a dynamic one
-  const uniqueEntries = Array.from(
-    new Map(allEntries.map((entry) => [entry.url, entry])).values()
-  );
-
-  return uniqueEntries;
+  return [...staticEntries, ...blogEntries];
 }
